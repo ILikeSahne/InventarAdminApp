@@ -19,11 +19,11 @@ namespace InventarAdminApp
         {
             InitializeComponent();
             api = new API(10000);
-            Console.WriteLine(api.Login("bulme", "ilikesahne@gmx.at", "Pw123XYZ12").ToString());
-            loadServers();
+            //Console.WriteLine(api.Login("bulme", "ilikesahne@gmx.at", "Pw123XYZ12").ToString());
+            LoadServers();
         }
 
-        private void loadServers()
+        private void LoadServers()
         {
             serverDropDown.Items.Clear();
             List<string> databases = api.GetDabases();
@@ -31,6 +31,11 @@ namespace InventarAdminApp
             {
                 serverDropDown.Items.Add(name);
             }
+        }
+
+        private void addNewDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            api.CreateNewDatabase(nameInput.Text, passwordInput.Text);
         }
     }
 }

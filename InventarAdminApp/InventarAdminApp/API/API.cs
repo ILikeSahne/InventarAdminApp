@@ -19,7 +19,7 @@ namespace InventarAPI
         private RSAHelper rsaHelper;
         private StreamHelper helper;
 
-        private string db, email, pw;
+        private string db, name, pw;
 
         public API(string _domain, int _port)
         {
@@ -80,17 +80,17 @@ namespace InventarAPI
             return databases;
         }
 
-        public LoginError Login(string _db, string _email, string _pw)
+        public LoginError Login(string _db, string _name, string _pw)
         {
             db = _db;
-            email = _email;
+            name = _name;
             pw = _pw;
             try
             {
                 OpenConnection();
                 helper.SendString("Login");
                 helper.SendString(db);
-                helper.SendString(email);
+                helper.SendString(name);
                 helper.SendString(pw);
                 CloseConnection();
                 return LoginError.NO_ERROR;
@@ -98,6 +98,15 @@ namespace InventarAPI
             {
                 return LoginError.SERVER_NOT_RESPONDING;
             }
+        }
+
+        public void CreateNewDatabase(string _username, string _password)
+        {
+            OpenConnection();
+            helper.SendString("CreateNewDatabase");
+            helper.SendString(_username);
+            helper.SendString(_password);
+            CloseConnection();
         }
 
         public static void WriteLine(string _s, params object[] _args)
