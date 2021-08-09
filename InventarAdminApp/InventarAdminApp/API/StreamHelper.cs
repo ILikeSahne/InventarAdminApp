@@ -4,27 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventarAdminApp
+namespace InventarAPI
 {
     class StreamHelper
     {
-        private RSAHelper helper;
+        public RSAHelper Helper { get; }
         private ASCIIEncoding ascii;
 
         public StreamHelper(RSAHelper _helper)
         {
-            helper = _helper;
+            Helper = _helper;
             ascii = new ASCIIEncoding();
         }
 
         public void SendString(string _s)
         {
-            helper.WriteByteArray(ascii.GetBytes(_s));
+            Helper.WriteByteArray(ascii.GetBytes(_s));
         }
 
         public string ReadString()
         {
-            return ascii.GetString(helper.ReadByteArray());
+            return ascii.GetString(Helper.ReadByteArray());
+        }
+
+        public void SendInt(int _x)
+        {
+            Helper.WriteByteArray(BitConverter.GetBytes(_x));
+        }
+
+        public int ReadInt()
+        {
+            return BitConverter.ToInt32(Helper.ReadByteArray(), 0);
         }
     }
 }

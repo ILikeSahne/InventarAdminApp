@@ -7,3 +7,4 @@ E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\Invent
 E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csproj.CoreCompileInputs.cache
 E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.exe
 E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.pdb
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.Form1.resources

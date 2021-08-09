@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventarAdminApp
+namespace InventarAPI
 {
     class API
     {
@@ -33,7 +33,7 @@ namespace InventarAdminApp
             port = _port;
         }
 
-        private LoginError OpenConnection()
+        private void OpenConnection()
         {
             client = new TcpClient();
             IAsyncResult result = client.BeginConnect(Dns.GetHostAddresses(domain)[0], port, null, null);
@@ -54,19 +54,30 @@ namespace InventarAdminApp
                 WriteLine("Error: {0}", e.ToString());
             }
             helper = new StreamHelper(rsaHelper);
-            helper.SendString(db);
-            helper.SendString(email);
-            helper.SendString(pw);
-            return LoginError.NO_ERROR;
         }
 
         public void CloseConnection()
         {
+            helper.SendString("Close");
             if (client != null)
             {
                 client.Close();
                 client = null;
             }
+        }
+
+        public List<string> GetDabases()
+        {
+            OpenConnection();
+            helper.SendString("ListDatabases");
+            List<string> databases = new List<string>();
+            int len = helper.ReadInt();
+            for(int i = 0; i < len; i++)
+            {
+                databases.Add(helper.ReadString());
+            }
+            CloseConnection();
+            return databases;
         }
 
         public LoginError Login(string _db, string _email, string _pw)
@@ -76,9 +87,13 @@ namespace InventarAdminApp
             pw = _pw;
             try
             {
-                LoginError e = OpenConnection();
+                OpenConnection();
+                helper.SendString("Login");
+                helper.SendString(db);
+                helper.SendString(email);
+                helper.SendString(pw);
                 CloseConnection();
-                return e;
+                return LoginError.NO_ERROR;
             } catch (Exception e)
             {
                 return LoginError.SERVER_NOT_RESPONDING;

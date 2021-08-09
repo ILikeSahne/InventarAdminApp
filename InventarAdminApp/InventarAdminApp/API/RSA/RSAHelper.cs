@@ -2,7 +2,7 @@
 using System.Net.Sockets;
 using System.Text;
 
-namespace InventarAdminApp
+namespace InventarAPI
 {
     class RSAHelper
     {
