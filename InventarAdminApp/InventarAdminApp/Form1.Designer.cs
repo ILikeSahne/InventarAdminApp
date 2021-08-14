@@ -39,6 +39,7 @@ namespace InventarAdminApp
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@ namespace InventarAdminApp
             // 
             this.passwordInput.Location = new System.Drawing.Point(73, 75);
             this.passwordInput.Name = "passwordInput";
+            this.passwordInput.PasswordChar = '*';
             this.passwordInput.Size = new System.Drawing.Size(150, 20);
             this.passwordInput.TabIndex = 2;
             // 
@@ -120,15 +122,25 @@ namespace InventarAdminApp
             // addNewDatabaseToolStripMenuItem
             // 
             this.addNewDatabaseToolStripMenuItem.Name = "addNewDatabaseToolStripMenuItem";
-            this.addNewDatabaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewDatabaseToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addNewDatabaseToolStripMenuItem.Text = "Add new Database";
             this.addNewDatabaseToolStripMenuItem.Click += new System.EventHandler(this.addNewDatabaseToolStripMenuItem_Click);
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorLabel.Location = new System.Drawing.Point(15, 105);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorLabel.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -159,6 +171,7 @@ namespace InventarAdminApp
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewDatabaseToolStripMenuItem;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
 

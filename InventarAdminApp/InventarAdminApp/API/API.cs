@@ -10,6 +10,8 @@ namespace InventarAPI
 {
     class API
     {
+        private const string okResponse = "OK";
+
         private string domain;
         private int port;
 
@@ -100,13 +102,29 @@ namespace InventarAPI
             }
         }
 
-        public void CreateNewDatabase(string _username, string _password)
+        public string CreateNewDatabase(string _adminUsername, string _adminPassword, string _dbName, string _dbAdminEmail, string _dbAdminUsername, string _dbAdminPassword)
         {
             OpenConnection();
             helper.SendString("CreateNewDatabase");
-            helper.SendString(_username);
-            helper.SendString(_password);
+            helper.SendString(_adminUsername);
+            helper.SendString(_adminPassword);
+
+            string response = helper.ReadString();
+            if(response != okResponse)
+                return "Error: " + response;
+
+            helper.SendString(_dbName);
+            helper.SendString(_dbAdminEmail);
+            helper.SendString(_dbAdminUsername);
+            helper.SendString(_dbAdminPassword);
+
+           response = helper.ReadString();
+            if (response != okResponse)
+                return "Error: " + response;
+
             CloseConnection();
+
+            return "Database " + _dbName + " created";
         }
 
         public static void WriteLine(string _s, params object[] _args)

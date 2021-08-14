@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,7 +36,14 @@ namespace InventarAdminApp
 
         private void addNewDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            api.CreateNewDatabase(nameInput.Text, passwordInput.Text);
+            CreateNewDatabaseForm newDb = new CreateNewDatabaseForm(CreateNewDatabase);
+            newDb.Show();
+        }
+
+        private bool CreateNewDatabase(CreateNewDatabaseForm form)
+        {
+            errorLabel.Text = api.CreateNewDatabase(nameInput.Text, passwordInput.Text, form.DatabaseName, form.AdminEmail, form.AdminUsername, form.AdminPassword);
+            return true;
         }
     }
 }
