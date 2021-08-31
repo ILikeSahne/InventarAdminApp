@@ -57,6 +57,7 @@ namespace InventarAdminApp
             this.nameInput.Name = "nameInput";
             this.nameInput.Size = new System.Drawing.Size(150, 20);
             this.nameInput.TabIndex = 1;
+            this.nameInput.Text = "ilikesahne";
             // 
             // passwordInput
             // 
@@ -65,6 +66,7 @@ namespace InventarAdminApp
             this.passwordInput.PasswordChar = '*';
             this.passwordInput.Size = new System.Drawing.Size(150, 20);
             this.passwordInput.TabIndex = 2;
+            this.passwordInput.Text = "12179malA!";
             // 
             // label1
             // 

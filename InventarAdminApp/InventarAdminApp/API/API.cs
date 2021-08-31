@@ -94,6 +94,8 @@ namespace InventarAPI
                 helper.SendString(db);
                 helper.SendString(name);
                 helper.SendString(pw);
+                string response = helper.ReadString();
+                API.WriteLine("Response: {0}", response);
                 CloseConnection();
                 return LoginError.NO_ERROR;
             } catch (Exception e)
@@ -124,7 +126,7 @@ namespace InventarAPI
 
             CloseConnection();
 
-            return "Database " + _dbName + " created";
+            return "OK";
         }
 
         public static void WriteLine(string _s, params object[] _args)

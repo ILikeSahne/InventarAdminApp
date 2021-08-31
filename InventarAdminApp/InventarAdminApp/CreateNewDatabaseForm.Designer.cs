@@ -82,6 +82,7 @@ namespace InventarAdminApp
             this.databaseNameInput.Name = "databaseNameInput";
             this.databaseNameInput.Size = new System.Drawing.Size(142, 20);
             this.databaseNameInput.TabIndex = 4;
+            this.databaseNameInput.Text = "UwUUwU";
             // 
             // adminEmailInput
             // 
@@ -89,6 +90,7 @@ namespace InventarAdminApp
             this.adminEmailInput.Name = "adminEmailInput";
             this.adminEmailInput.Size = new System.Drawing.Size(142, 20);
             this.adminEmailInput.TabIndex = 5;
+            this.adminEmailInput.Text = "UwUUwU@gmx.at";
             // 
             // adminPasswordInput
             // 
@@ -97,6 +99,7 @@ namespace InventarAdminApp
             this.adminPasswordInput.PasswordChar = '*';
             this.adminPasswordInput.Size = new System.Drawing.Size(142, 20);
             this.adminPasswordInput.TabIndex = 6;
+            this.adminPasswordInput.Text = "UwU123!!";
             // 
             // adminUsernameInput
             // 
@@ -104,6 +107,7 @@ namespace InventarAdminApp
             this.adminUsernameInput.Name = "adminUsernameInput";
             this.adminUsernameInput.Size = new System.Drawing.Size(142, 20);
             this.adminUsernameInput.TabIndex = 7;
+            this.adminUsernameInput.Text = "UwUUwU";
             // 
             // _sendDataButton
             // 

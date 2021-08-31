@@ -42,8 +42,12 @@ namespace InventarAdminApp
 
         private bool CreateNewDatabase(CreateNewDatabaseForm form)
         {
-            errorLabel.Text = api.CreateNewDatabase(nameInput.Text, passwordInput.Text, form.DatabaseName, form.AdminEmail, form.AdminUsername, form.AdminPassword);
-            return true;
+            string response = api.CreateNewDatabase(nameInput.Text, passwordInput.Text, form.DatabaseName, form.AdminEmail, form.AdminUsername, form.AdminPassword);
+            if(response == "OK")
+                errorLabel.Text = "Database " + form.DatabaseName + " created!";
+            else
+                errorLabel.Text = response;
+            return response == "OK";
         }
     }
 }
