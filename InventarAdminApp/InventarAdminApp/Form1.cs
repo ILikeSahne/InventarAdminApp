@@ -43,11 +43,37 @@ namespace InventarAdminApp
         private bool CreateNewDatabase(CreateNewDatabaseForm form)
         {
             string response = api.CreateNewDatabase(nameInput.Text, passwordInput.Text, form.DatabaseName, form.AdminEmail, form.AdminUsername, form.AdminPassword);
-            if(response == "OK")
-                errorLabel.Text = "Database " + form.DatabaseName + " created!";
+            if (response == "OK") {
+                Success("Database " + form.DatabaseName + " created!");
+                return true;
+            } else
+                Error(response);
+            return false;
+        }
+
+        private void Error(string _error)
+        {
+            errorLabel.ForeColor = Color.Red;
+            errorLabel.Text = _error;
+        }
+
+        private void Success(string _success)
+        {
+            errorLabel.ForeColor = Color.Green;
+            errorLabel.Text = _success;
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            LoginError error = api.Login(serverDropDown.Text, nameInput.Text, passwordInput.Text);
+            if(error == LoginError.NONE)
+            {
+                Success("Login successfull!");
+            }
             else
-                errorLabel.Text = response;
-            return response == "OK";
+            {
+                Error(error.ToString());
+            }
         }
     }
 }

@@ -97,11 +97,22 @@ namespace InventarAPI
                 string response = helper.ReadString();
                 API.WriteLine("Response: {0}", response);
                 CloseConnection();
-                return LoginError.NO_ERROR;
-            } catch (Exception e)
+                return GetErrorFromString(response);
+            }
+            catch (Exception e)
             {
                 return LoginError.SERVER_NOT_RESPONDING;
             }
+        }
+
+        private LoginError GetErrorFromString(string _error)
+        {
+            foreach (LoginError e in Enum.GetValues(typeof(LoginError)))
+            {
+                if (e.ToString().Equals(_error))
+                    return e;
+            }
+            return LoginError.UNKNOWN;
         }
 
         public string CreateNewDatabase(string _adminUsername, string _adminPassword, string _dbName, string _dbAdminEmail, string _dbAdminUsername, string _dbAdminPassword)
@@ -139,6 +150,6 @@ namespace InventarAPI
 
     public enum LoginError
     {
-        NO_ERROR, SERVER_NOT_RESPONDING, WRONG_DATABASE, WRONG_USERNAME, WRONG_PASSWORD
+        NONE, SERVER_NOT_RESPONDING, WRONG_DATABASE, WRONG_USERNAME, WRONG_PASSWORD, UNKNOWN
     }
 }

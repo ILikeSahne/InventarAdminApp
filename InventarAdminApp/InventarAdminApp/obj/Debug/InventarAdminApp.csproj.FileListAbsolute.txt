@@ -9,3 +9,14 @@ E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\Invent
 E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.Form1.resources
 E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.CreateNewDatabaseForm.resources
 E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csproj.AssemblyReference.cache
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\InventarAdminApp.exe.config
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\InventarAdminApp.exe
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\InventarAdminApp.pdb
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csprojAssemblyReference.cache
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.Form1.resources
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.CreateNewDatabaseForm.resources
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.Properties.Resources.resources
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csproj.GenerateResource.cache
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csproj.CoreCompileInputs.cache
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.exe
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.pdb
