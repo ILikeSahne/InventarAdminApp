@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace InventarAPI
@@ -137,6 +138,21 @@ namespace InventarAPI
 
             CloseConnection();
 
+            return "OK";
+        }
+
+        public string AddItem(Item _i)
+        {
+            OpenConnection();
+            helper.SendString("AddNewItem");
+            helper.SendString(db);
+            helper.SendString(name);
+            helper.SendString(pw);
+            string response = helper.ReadString();
+            if (response != okResponse)
+                return "Error: " + response;
+            string json = JsonSerializer.Serialize(_i);
+            helper.SendString(json);
             return "OK";
         }
 

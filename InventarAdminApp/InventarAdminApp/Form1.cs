@@ -75,5 +75,24 @@ namespace InventarAdminApp
                 Error(error.ToString());
             }
         }
+
+        private void addNewItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewItemForm newItem = new AddNewItemForm(AddNewItem);
+            newItem.Show();
+        }
+
+        private bool AddNewItem(AddNewItemForm form)
+        {
+            string response = api.AddItem(form.Item);
+            if (response == "OK")
+            {
+                Success("Item added!");
+                return true;
+            }
+            else
+                Error(response);
+            return false;
+        }
     }
 }
