@@ -59,6 +59,11 @@ namespace InventarAPI
             helper = new StreamHelper(rsaHelper);
         }
 
+        public bool LoggedIn()
+        {
+            return db != null;
+        }
+
         public void CloseConnection()
         {
             helper.SendString("Close");
@@ -71,16 +76,22 @@ namespace InventarAPI
 
         public List<string> GetDabases()
         {
-            OpenConnection();
-            helper.SendString("ListDatabases");
-            List<string> databases = new List<string>();
-            int len = helper.ReadInt();
-            for(int i = 0; i < len; i++)
+            try
             {
-                databases.Add(helper.ReadString());
+                OpenConnection();
+                helper.SendString("ListDatabases");
+                List<string> databases = new List<string>();
+                int len = helper.ReadInt();
+                for (int i = 0; i < len; i++)
+                {
+                    databases.Add(helper.ReadString());
+                }
+                CloseConnection();
+                return databases;
+            } catch(Exception e)
+            {
+                return new List<string>();
             }
-            CloseConnection();
-            return databases;
         }
 
         public LoginError Login(string _db, string _name, string _pw)
@@ -154,6 +165,27 @@ namespace InventarAPI
             string json = JsonSerializer.Serialize(_i);
             helper.SendString(json);
             return "OK";
+        }
+
+        public List<Item> ListItems()
+        {
+            OpenConnection();
+            helper.SendString("ListItems");
+            helper.SendString(db);
+            helper.SendString(name);
+            helper.SendString(pw);
+            string response = helper.ReadString();
+            if (response != okResponse)
+                return null;
+            int amountOfItems = helper.ReadInt();
+            List<Item> items = new List<Item>();
+            for(int i = 0; i < amountOfItems; i++)
+            {
+                string json = helper.ReadString();
+                Item item = JsonSerializer.Deserialize<Item>(json);
+                items.Add(item);
+            }
+            return items;
         }
 
         public static void WriteLine(string _s, params object[] _args)

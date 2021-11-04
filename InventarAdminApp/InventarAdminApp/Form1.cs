@@ -36,12 +36,16 @@ namespace InventarAdminApp
 
         private void addNewDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!api.LoggedIn())
+                Login();
             CreateNewDatabaseForm newDb = new CreateNewDatabaseForm(CreateNewDatabase);
             newDb.Show();
         }
 
         private bool CreateNewDatabase(CreateNewDatabaseForm form)
         {
+            if (!api.LoggedIn())
+                Login();
             string response = api.CreateNewDatabase(nameInput.Text, passwordInput.Text, form.DatabaseName, form.AdminEmail, form.AdminUsername, form.AdminPassword);
             if (response == "OK") {
                 Success("Database " + form.DatabaseName + " created!");
@@ -63,12 +67,18 @@ namespace InventarAdminApp
             errorLabel.Text = _success;
         }
 
+        private LoginError Login()
+        {
+            return api.Login(serverDropDown.Text, nameInput.Text, passwordInput.Text);
+        }
+
         private void loginButton_Click(object sender, EventArgs e)
         {
-            LoginError error = api.Login(serverDropDown.Text, nameInput.Text, passwordInput.Text);
-            if(error == LoginError.NONE)
+            LoginError error = Login();
+            if (error == LoginError.NONE)
             {
                 Success("Login successfull!");
+                ShowItems();
             }
             else
             {
@@ -76,14 +86,29 @@ namespace InventarAdminApp
             }
         }
 
+        private void ShowItems()
+        {
+            if (!api.LoggedIn())
+                Login();
+            itemTable.Rows.Clear();
+            List<Item> items = api.ListItems();
+            foreach(Item i in items) {
+                itemTable.Rows.Add(i.ToStrings());
+            }
+        }
+
         private void addNewItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!api.LoggedIn())
+                Login();
             AddNewItemForm newItem = new AddNewItemForm(AddNewItem);
             newItem.Show();
         }
 
         private bool AddNewItem(AddNewItemForm form)
         {
+            if (!api.LoggedIn())
+                Login();
             string response = api.AddItem(form.Item);
             if (response == "OK")
             {

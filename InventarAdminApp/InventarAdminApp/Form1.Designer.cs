@@ -43,7 +43,21 @@ namespace InventarAdminApp
             this.addNewItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorLabel = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
+            this.itemTable = new System.Windows.Forms.DataGridView();
+            this.Anlage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unternummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AktuelleInventarNummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AktivierungAm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Anlagenbezeichnung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serialnummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnschaffungsWert = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuchWert = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Waehrung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KfzKennzeichen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Raum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RaumBezeichnung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.itemTable)).BeginInit();
             this.SuspendLayout();
             // 
             // serverDropDown
@@ -180,11 +194,111 @@ namespace InventarAdminApp
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
+            // itemTable
+            // 
+            this.itemTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.itemTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.itemTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Anlage,
+            this.Unternummer,
+            this.AktuelleInventarNummer,
+            this.AktivierungAm,
+            this.Anlagenbezeichnung,
+            this.Serialnummer,
+            this.AnschaffungsWert,
+            this.BuchWert,
+            this.Waehrung,
+            this.KfzKennzeichen,
+            this.Raum,
+            this.RaumBezeichnung});
+            this.itemTable.Location = new System.Drawing.Point(349, 32);
+            this.itemTable.Name = "itemTable";
+            this.itemTable.RowHeadersWidth = 50;
+            this.itemTable.RowTemplate.Height = 28;
+            this.itemTable.Size = new System.Drawing.Size(839, 648);
+            this.itemTable.TabIndex = 10;
+            // 
+            // Anlage
+            // 
+            this.Anlage.HeaderText = "Anlage";
+            this.Anlage.MinimumWidth = 8;
+            this.Anlage.Name = "Anlage";
+            // 
+            // Unternummer
+            // 
+            this.Unternummer.HeaderText = "Untern.";
+            this.Unternummer.MinimumWidth = 8;
+            this.Unternummer.Name = "Unternummer";
+            // 
+            // AktuelleInventarNummer
+            // 
+            this.AktuelleInventarNummer.HeaderText = "AktuelleN.";
+            this.AktuelleInventarNummer.MinimumWidth = 8;
+            this.AktuelleInventarNummer.Name = "AktuelleInventarNummer";
+            // 
+            // AktivierungAm
+            // 
+            this.AktivierungAm.HeaderText = "AktivierungAm";
+            this.AktivierungAm.MinimumWidth = 8;
+            this.AktivierungAm.Name = "AktivierungAm";
+            // 
+            // Anlagenbezeichnung
+            // 
+            this.Anlagenbezeichnung.HeaderText = "Anlagenb.";
+            this.Anlagenbezeichnung.MinimumWidth = 8;
+            this.Anlagenbezeichnung.Name = "Anlagenbezeichnung";
+            // 
+            // Serialnummer
+            // 
+            this.Serialnummer.HeaderText = "Serialn.";
+            this.Serialnummer.MinimumWidth = 8;
+            this.Serialnummer.Name = "Serialnummer";
+            // 
+            // AnschaffungsWert
+            // 
+            this.AnschaffungsWert.HeaderText = "AnschWert";
+            this.AnschaffungsWert.MinimumWidth = 8;
+            this.AnschaffungsWert.Name = "AnschaffungsWert";
+            // 
+            // BuchWert
+            // 
+            this.BuchWert.HeaderText = "BuchWert";
+            this.BuchWert.MinimumWidth = 8;
+            this.BuchWert.Name = "BuchWert";
+            // 
+            // Waehrung
+            // 
+            this.Waehrung.HeaderText = "Waehrung";
+            this.Waehrung.MinimumWidth = 8;
+            this.Waehrung.Name = "Waehrung";
+            // 
+            // KfzKennzeichen
+            // 
+            this.KfzKennzeichen.HeaderText = "KfzK.";
+            this.KfzKennzeichen.MinimumWidth = 8;
+            this.KfzKennzeichen.Name = "KfzKennzeichen";
+            // 
+            // Raum
+            // 
+            this.Raum.HeaderText = "Raum";
+            this.Raum.MinimumWidth = 8;
+            this.Raum.Name = "Raum";
+            // 
+            // RaumBezeichnung
+            // 
+            this.RaumBezeichnung.HeaderText = "RaumB.";
+            this.RaumBezeichnung.MinimumWidth = 8;
+            this.RaumBezeichnung.Name = "RaumBezeichnung";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.itemTable);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.label3);
@@ -201,6 +315,7 @@ namespace InventarAdminApp
             this.Text = "Form1";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.itemTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +337,19 @@ namespace InventarAdminApp
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewItemToolStripMenuItem;
+        private System.Windows.Forms.DataGridView itemTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Anlage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unternummer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AktuelleInventarNummer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AktivierungAm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Anlagenbezeichnung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serialnummer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AnschaffungsWert;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuchWert;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Waehrung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KfzKennzeichen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Raum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RaumBezeichnung;
     }
 }
 
