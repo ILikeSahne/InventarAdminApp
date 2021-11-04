@@ -39,20 +39,22 @@ namespace InventarAdminApp
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.errorLabel = new System.Windows.Forms.Label();
-            this.loginButton = new System.Windows.Forms.Button();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorLabel = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // serverDropDown
             // 
+            this.serverDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.serverDropDown.FormattingEnabled = true;
             this.serverDropDown.Location = new System.Drawing.Point(110, 32);
             this.serverDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.serverDropDown.Name = "serverDropDown";
             this.serverDropDown.Size = new System.Drawing.Size(223, 28);
+            this.serverDropDown.Sorted = true;
             this.serverDropDown.TabIndex = 0;
             // 
             // nameInput
@@ -62,7 +64,7 @@ namespace InventarAdminApp
             this.nameInput.Name = "nameInput";
             this.nameInput.Size = new System.Drawing.Size(223, 26);
             this.nameInput.TabIndex = 1;
-            this.nameInput.Text = "ilikesahne";
+            this.nameInput.Text = "TestUser";
             // 
             // passwordInput
             // 
@@ -72,7 +74,7 @@ namespace InventarAdminApp
             this.passwordInput.PasswordChar = '*';
             this.passwordInput.Size = new System.Drawing.Size(223, 26);
             this.passwordInput.TabIndex = 2;
-            this.passwordInput.Text = "12345678aB!";
+            this.passwordInput.Text = "Test123!!!";
             // 
             // label1
             // 
@@ -108,9 +110,9 @@ namespace InventarAdminApp
             // 
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 33);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 36);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 36);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,7 +125,7 @@ namespace InventarAdminApp
             this.databaseToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1200, 33);
+            this.menuStrip2.Size = new System.Drawing.Size(1200, 36);
             this.menuStrip2.TabIndex = 7;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -132,7 +134,7 @@ namespace InventarAdminApp
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewDatabaseToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(81, 29);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(81, 30);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // addNewDatabaseToolStripMenuItem
@@ -141,6 +143,21 @@ namespace InventarAdminApp
             this.addNewDatabaseToolStripMenuItem.Size = new System.Drawing.Size(264, 34);
             this.addNewDatabaseToolStripMenuItem.Text = "Add new Database";
             this.addNewDatabaseToolStripMenuItem.Click += new System.EventHandler(this.addNewDatabaseToolStripMenuItem_Click);
+            // 
+            // databaseToolStripMenuItem
+            // 
+            this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewItemToolStripMenuItem});
+            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(102, 30);
+            this.databaseToolStripMenuItem.Text = "Database";
+            // 
+            // addNewItemToolStripMenuItem
+            // 
+            this.addNewItemToolStripMenuItem.Name = "addNewItemToolStripMenuItem";
+            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(226, 34);
+            this.addNewItemToolStripMenuItem.Text = "Add new Item";
+            this.addNewItemToolStripMenuItem.Click += new System.EventHandler(this.addNewItemToolStripMenuItem_Click);
             // 
             // errorLabel
             // 
@@ -162,21 +179,6 @@ namespace InventarAdminApp
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            // 
-            // databaseToolStripMenuItem
-            // 
-            this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewItemToolStripMenuItem});
-            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
-            this.databaseToolStripMenuItem.Text = "Database";
-            // 
-            // addNewItemToolStripMenuItem
-            // 
-            this.addNewItemToolStripMenuItem.Name = "addNewItemToolStripMenuItem";
-            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.addNewItemToolStripMenuItem.Text = "Add new Item";
-            this.addNewItemToolStripMenuItem.Click += new System.EventHandler(this.addNewItemToolStripMenuItem_Click);
             // 
             // Form1
             // 
