@@ -90,7 +90,7 @@ namespace InventarAPI
                 return databases;
             } catch(Exception e)
             {
-                return new List<string>();
+                return null;
             }
         }
 
@@ -164,6 +164,20 @@ namespace InventarAPI
                 return "Error: " + response;
             string json = JsonSerializer.Serialize(_i);
             helper.SendString(json);
+            return "OK";
+        }
+
+        public string DeleteItem(Item _i)
+        {
+            OpenConnection();
+            helper.SendString("DeleteItem");
+            helper.SendString(db);
+            helper.SendString(name);
+            helper.SendString(pw);
+            string response = helper.ReadString();
+            if (response != okResponse)
+                return "Error: " + response;
+            helper.SendString(_i.ID);
             return "OK";
         }
 

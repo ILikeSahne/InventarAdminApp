@@ -16,6 +16,8 @@ namespace InventarAdminApp
     {
         private API api;
 
+        private List<Item> items;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +30,11 @@ namespace InventarAdminApp
         {
             serverDropDown.Items.Clear();
             List<string> databases = api.GetDabases();
+            if(databases == null)
+            {
+                Error("Server is offline!");
+                return;
+            }
             foreach(string name in databases)
             {
                 serverDropDown.Items.Add(name);
@@ -91,9 +98,10 @@ namespace InventarAdminApp
             if (!api.LoggedIn())
                 Login();
             itemTable.Rows.Clear();
-            List<Item> items = api.ListItems();
+            items = api.ListItems();
             foreach(Item i in items) {
                 itemTable.Rows.Add(i.ToStrings());
+                Console.WriteLine(i.ID);
             }
         }
 
@@ -118,6 +126,29 @@ namespace InventarAdminApp
             else
                 Error(response);
             return false;
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (items == null)
+            {
+                Error("No Items!");
+                return;
+            }
+            var rows = itemTable.SelectedRows;
+            List<Item> removes = new List<Item>();
+            foreach(DataGridViewRow row in rows)
+            {
+                Item i = items[row.Index];
+                string response = api.DeleteItem(i);
+                if (response == "OK")
+                {
+                    Success("Item(s) deleted!");
+                    removes.Add(i);
+                }
+            }
+            items = items.Except(removes).ToList();
+            ShowItems();
         }
     }
 }

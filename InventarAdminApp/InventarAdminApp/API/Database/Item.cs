@@ -6,6 +6,7 @@ namespace InventarAPI
 {
     public class Item
     {
+        public string ID { get; set; }
         public string Anlage { get; set; }
         public string Unternummer { get; set; }
         public string AktuelleInventarNummer { get; set; }
