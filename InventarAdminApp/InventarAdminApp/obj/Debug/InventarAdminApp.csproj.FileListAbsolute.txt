@@ -40,3 +40,4 @@ C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\Inve
 C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.ValueTuple.xml
 C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.AddNewItemForm.resources
 C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csproj.CopyComplete
+C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.AddNewUserForm.resources

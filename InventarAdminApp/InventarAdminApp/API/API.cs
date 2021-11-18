@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace InventarAPI
 {
-    class API
+    public class API
     {
         private const string okResponse = "OK";
 
@@ -149,6 +149,25 @@ namespace InventarAPI
 
             CloseConnection();
 
+            return "OK";
+        }
+
+        public string AddUser(string username, string email, string password)
+        {
+            OpenConnection();
+            helper.SendString("AddNewUser");
+            helper.SendString(db);
+            helper.SendString(name);
+            helper.SendString(pw);
+            string response = helper.ReadString();
+            if (response != okResponse)
+                return "Error: " + response;
+            helper.SendString(username);
+            helper.SendString(email);
+            helper.SendString(password);
+            response = helper.ReadString();
+            if (response != okResponse)
+                return "Error: " + response;
             return "OK";
         }
 

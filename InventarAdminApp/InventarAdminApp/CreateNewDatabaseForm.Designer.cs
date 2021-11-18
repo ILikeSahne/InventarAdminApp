@@ -30,10 +30,10 @@ namespace InventarAdminApp
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.databaseNameInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.databaseNameInput = new System.Windows.Forms.TextBox();
             this.adminEmailInput = new System.Windows.Forms.TextBox();
             this.adminPasswordInput = new System.Windows.Forms.TextBox();
             this.adminUsernameInput = new System.Windows.Forms.TextBox();
@@ -49,6 +49,15 @@ namespace InventarAdminApp
             this.label1.Size = new System.Drawing.Size(125, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Database Name";
+            // 
+            // databaseNameInput
+            // 
+            this.databaseNameInput.Location = new System.Drawing.Point(154, 15);
+            this.databaseNameInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.databaseNameInput.Name = "databaseNameInput";
+            this.databaseNameInput.Size = new System.Drawing.Size(211, 26);
+            this.databaseNameInput.TabIndex = 4;
+            this.databaseNameInput.Text = "TestDB";
             // 
             // label2
             // 
@@ -79,15 +88,6 @@ namespace InventarAdminApp
             this.label4.Size = new System.Drawing.Size(127, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Admin Password";
-            // 
-            // databaseNameInput
-            // 
-            this.databaseNameInput.Location = new System.Drawing.Point(154, 15);
-            this.databaseNameInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.databaseNameInput.Name = "databaseNameInput";
-            this.databaseNameInput.Size = new System.Drawing.Size(211, 26);
-            this.databaseNameInput.TabIndex = 4;
-            this.databaseNameInput.Text = "TestDB";
             // 
             // adminEmailInput
             // 
@@ -153,10 +153,10 @@ namespace InventarAdminApp
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox databaseNameInput;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox databaseNameInput;
         private System.Windows.Forms.TextBox adminEmailInput;
         private System.Windows.Forms.TextBox adminPasswordInput;
         private System.Windows.Forms.TextBox adminUsernameInput;

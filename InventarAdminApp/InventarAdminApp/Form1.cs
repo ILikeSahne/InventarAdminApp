@@ -150,5 +150,28 @@ namespace InventarAdminApp
             items = items.Except(removes).ToList();
             ShowItems();
         }
+
+        private void addNewUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!api.LoggedIn())
+                Login();
+            AddNewUserForm newUser = new AddNewUserForm(AddNewUser);
+            newUser.Show();
+        }
+
+        private bool AddNewUser(AddNewUserForm form)
+        {
+            if (!api.LoggedIn())
+                Login();
+            string response = api.AddUser(form.Username, form.Email, form.Password);
+            if (response == "OK")
+            {
+                Success("User added!");
+                return true;
+            }
+            else
+                Error(response);
+            return false;
+        }
     }
 }
