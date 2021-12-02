@@ -58,6 +58,9 @@ namespace InventarAdminApp
             this.Raum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RaumBezeichnung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.itemCollectionDropDown = new System.Windows.Forms.ComboBox();
+            this.showItemsButton = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemTable)).BeginInit();
             this.SuspendLayout();
@@ -150,7 +153,7 @@ namespace InventarAdminApp
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewDatabaseToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(81, 32);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(81, 30);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // addNewDatabaseToolStripMenuItem
@@ -166,20 +169,20 @@ namespace InventarAdminApp
             this.addNewItemToolStripMenuItem,
             this.addNewUserToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(102, 32);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(102, 30);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
             // addNewItemToolStripMenuItem
             // 
             this.addNewItemToolStripMenuItem.Name = "addNewItemToolStripMenuItem";
-            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(226, 34);
             this.addNewItemToolStripMenuItem.Text = "Add new Item";
             this.addNewItemToolStripMenuItem.Click += new System.EventHandler(this.addNewItemToolStripMenuItem_Click);
             // 
             // addNewUserToolStripMenuItem
             // 
             this.addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
-            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(226, 34);
             this.addNewUserToolStripMenuItem.Text = "Add new User";
             this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.addNewUserToolStripMenuItem_Click);
             // 
@@ -314,11 +317,44 @@ namespace InventarAdminApp
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 222);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Item Collection";
+            // 
+            // itemCollectionDropDown
+            // 
+            this.itemCollectionDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemCollectionDropDown.FormattingEnabled = true;
+            this.itemCollectionDropDown.Location = new System.Drawing.Point(22, 247);
+            this.itemCollectionDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.itemCollectionDropDown.Name = "itemCollectionDropDown";
+            this.itemCollectionDropDown.Size = new System.Drawing.Size(311, 28);
+            this.itemCollectionDropDown.Sorted = true;
+            this.itemCollectionDropDown.TabIndex = 13;
+            // 
+            // showItemsButton
+            // 
+            this.showItemsButton.Location = new System.Drawing.Point(22, 284);
+            this.showItemsButton.Name = "showItemsButton";
+            this.showItemsButton.Size = new System.Drawing.Size(311, 35);
+            this.showItemsButton.TabIndex = 14;
+            this.showItemsButton.Text = "Show Items";
+            this.showItemsButton.UseVisualStyleBackColor = true;
+            this.showItemsButton.Click += new System.EventHandler(this.showItemsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.showItemsButton);
+            this.Controls.Add(this.itemCollectionDropDown);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.itemTable);
             this.Controls.Add(this.loginButton);
@@ -374,6 +410,9 @@ namespace InventarAdminApp
         private System.Windows.Forms.DataGridViewTextBoxColumn RaumBezeichnung;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.ToolStripMenuItem addNewUserToolStripMenuItem;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox itemCollectionDropDown;
+        private System.Windows.Forms.Button showItemsButton;
     }
 }
 

@@ -76,7 +76,8 @@ namespace InventarAdminApp
 
         private LoginError Login()
         {
-            return api.Login(serverDropDown.Text, nameInput.Text, passwordInput.Text);
+            LoginError e = api.Login(serverDropDown.Text, nameInput.Text, passwordInput.Text);
+            return e;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -85,11 +86,21 @@ namespace InventarAdminApp
             if (error == LoginError.NONE)
             {
                 Success("Login successfull!");
-                ShowItems();
+                ListItemCollections();
             }
             else
             {
                 Error(error.ToString());
+            }
+        }
+
+        private void ListItemCollections()
+        {
+            List<string> itemCollections = api.ListItemCollections();
+            itemCollectionDropDown.Items.Clear();
+            foreach (string s in itemCollections)
+            {
+                itemCollectionDropDown.Items.Add(s);
             }
         }
 
@@ -98,10 +109,15 @@ namespace InventarAdminApp
             if (!api.LoggedIn())
                 Login();
             itemTable.Rows.Clear();
-            items = api.ListItems();
+            items = api.ListItems(itemCollectionDropDown.Text);
             foreach(Item i in items) {
-                itemTable.Rows.Add(i.ToStrings());
-                Console.WriteLine(i.ID);
+                string[] data = i.ToStrings();
+                string[] dataWithoutID = new string[data.Length - 1];
+                for(int j = 1; j < data.Length; j++)
+                {
+                    dataWithoutID[j - 1] = data[j];
+                }
+                itemTable.Rows.Add(dataWithoutID);
             }
         }
 
@@ -117,7 +133,7 @@ namespace InventarAdminApp
         {
             if (!api.LoggedIn())
                 Login();
-            string response = api.AddItem(form.Item);
+            string response = api.AddItem(form.Item, itemCollectionDropDown.Text);
             if (response == "OK")
             {
                 Success("Item added!");
@@ -140,7 +156,7 @@ namespace InventarAdminApp
             foreach(DataGridViewRow row in rows)
             {
                 Item i = items[row.Index];
-                string response = api.DeleteItem(i);
+                string response = api.DeleteItem(i, itemCollectionDropDown.Text);
                 if (response == "OK")
                 {
                     Success("Item(s) deleted!");
@@ -172,6 +188,11 @@ namespace InventarAdminApp
             else
                 Error(response);
             return false;
+        }
+
+        private void showItemsButton_Click(object sender, EventArgs e)
+        {
+            ShowItems();
         }
     }
 }

@@ -171,7 +171,7 @@ namespace InventarAPI
             return "OK";
         }
 
-        public string AddItem(Item _i)
+        public string AddItem(Item _i, string _itemCollection)
         {
             OpenConnection();
             helper.SendString("AddNewItem");
@@ -181,12 +181,13 @@ namespace InventarAPI
             string response = helper.ReadString();
             if (response != okResponse)
                 return "Error: " + response;
+            helper.SendString(_itemCollection);
             string json = JsonSerializer.Serialize(_i);
             helper.SendString(json);
             return "OK";
         }
 
-        public string DeleteItem(Item _i)
+        public string DeleteItem(Item _i, string _itemCollection)
         {
             OpenConnection();
             helper.SendString("DeleteItem");
@@ -196,11 +197,12 @@ namespace InventarAPI
             string response = helper.ReadString();
             if (response != okResponse)
                 return "Error: " + response;
+            helper.SendString(_itemCollection);
             helper.SendString(_i.ID);
             return "OK";
         }
 
-        public List<Item> ListItems()
+        public List<Item> ListItems(string _itemCollection)
         {
             OpenConnection();
             helper.SendString("ListItems");
@@ -210,6 +212,7 @@ namespace InventarAPI
             string response = helper.ReadString();
             if (response != okResponse)
                 return null;
+            helper.SendString(_itemCollection);
             int amountOfItems = helper.ReadInt();
             List<Item> items = new List<Item>();
             for(int i = 0; i < amountOfItems; i++)
@@ -219,6 +222,26 @@ namespace InventarAPI
                 items.Add(item);
             }
             return items;
+        }
+
+        public List<string> ListItemCollections()
+        {
+            OpenConnection();
+            helper.SendString("ListItemCollectionNames");
+            helper.SendString(db);
+            helper.SendString(name);
+            helper.SendString(pw);
+            string response = helper.ReadString();
+            if (response != okResponse)
+                return null;
+            int amountOfItemCollection = helper.ReadInt();
+            List<string> itemCollections = new List<string>();
+            for (int i = 0; i < amountOfItemCollection; i++)
+            {
+                string itemCollectionName = helper.ReadString();
+                itemCollections.Add(itemCollectionName);
+            }
+            return itemCollections;
         }
 
         public static void WriteLine(string _s, params object[] _args)

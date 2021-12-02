@@ -29,6 +29,7 @@ namespace InventarAPI
         {
             return new string[]
             {
+                ID,
                 Anlage,
                 Unternummer,
                 AktuelleInventarNummer,
