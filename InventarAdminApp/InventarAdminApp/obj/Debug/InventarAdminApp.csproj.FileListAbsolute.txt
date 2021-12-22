@@ -41,3 +41,24 @@ C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\Inve
 C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.AddNewItemForm.resources
 C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csproj.CopyComplete
 C:\Users\ILike\Desktop\Diplom\Desktop App\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.AddNewUserForm.resources
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Buffers.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Memory.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Numerics.Vectors.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Text.Encodings.Web.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Text.Json.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.ValueTuple.dll
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Buffers.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Memory.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Numerics.Vectors.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Text.Encodings.Web.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Text.Json.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.ValueTuple.xml
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.AddNewItemForm.resources
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.AddNewUserForm.resources
+E:\Schule\5AHEL\Diplom\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csproj.CopyComplete

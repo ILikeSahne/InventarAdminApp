@@ -194,5 +194,15 @@ namespace InventarAdminApp
         {
             ShowItems();
         }
+
+        private void addItemCollectionButton_Click(object sender, EventArgs e)
+        {
+            string response = api.AddItemCollection(itemCollectionInput.Text);
+            if (response == "OK")
+                Success("Item Collection added!");
+            else
+                Error(response);
+            ListItemCollections();
+        }
     }
 }

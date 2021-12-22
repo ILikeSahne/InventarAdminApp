@@ -38,6 +38,10 @@ namespace InventarAdminApp
             Item.KfzKennzeichen = kfzKennzeichenInput.Text;
             Item.Raum = raumInput.Text;
             Item.RaumBezeichnung = raumBezeichungInput.Text;
+            Item.Status = "Vorhanden";
+            Item.Notiz = "";
+            Item.Bilder = new List<Image>();
+            Item.Verlauf = new List<string>();
             if (onDataSendClick(this))
                 Close();
         }

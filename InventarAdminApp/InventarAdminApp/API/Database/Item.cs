@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Text;
 
 namespace InventarAPI
@@ -19,10 +21,14 @@ namespace InventarAPI
         public string KfzKennzeichen { get; set; }
         public string Raum { get; set; }
         public string RaumBezeichnung { get; set; }
+        public string Status { get; set; }
+        public string Notiz { get; set; }
+        public List<Image> Bilder { get; set; }
+        public List<string> Verlauf { get; set; }
 
         public Item()
         {
-
+            
         }
 
         public string[] ToStrings()
@@ -41,7 +47,9 @@ namespace InventarAPI
                 Waehrung,
                 KfzKennzeichen,
                 Raum,
-                RaumBezeichnung
+                RaumBezeichnung,
+                Status,
+                Notiz
             };
         }
 

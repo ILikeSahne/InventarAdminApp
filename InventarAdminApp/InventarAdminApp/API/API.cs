@@ -155,50 +155,85 @@ namespace InventarAPI
         public string AddUser(string username, string email, string password)
         {
             OpenConnection();
+
             helper.SendString("AddNewUser");
             helper.SendString(db);
             helper.SendString(name);
             helper.SendString(pw);
+
             string response = helper.ReadString();
             if (response != okResponse)
                 return "Error: " + response;
+
             helper.SendString(username);
             helper.SendString(email);
             helper.SendString(password);
+
             response = helper.ReadString();
             if (response != okResponse)
                 return "Error: " + response;
+
+            return "OK";
+        }
+
+        public string AddItemCollection(string _itemCollection)
+        {
+            OpenConnection();
+
+            helper.SendString("AddNewItemCollection");
+            helper.SendString(db);
+            helper.SendString(name);
+            helper.SendString(pw);
+
+            helper.SendString(_itemCollection);
+
+            string response = helper.ReadString();
+            if (response != okResponse)
+                return "Error: " + response;
+
             return "OK";
         }
 
         public string AddItem(Item _i, string _itemCollection)
         {
             OpenConnection();
+
             helper.SendString("AddNewItem");
             helper.SendString(db);
             helper.SendString(name);
             helper.SendString(pw);
+
             string response = helper.ReadString();
             if (response != okResponse)
                 return "Error: " + response;
+
             helper.SendString(_itemCollection);
             string json = JsonSerializer.Serialize(_i);
             helper.SendString(json);
+
+            response = helper.ReadString();
+            if (response != okResponse)
+                return "Error: " + response;
+
             return "OK";
         }
 
         public string DeleteItem(Item _i, string _itemCollection)
         {
             OpenConnection();
+
             helper.SendString("DeleteItem");
             helper.SendString(db);
             helper.SendString(name);
             helper.SendString(pw);
+
             string response = helper.ReadString();
             if (response != okResponse)
                 return "Error: " + response;
+
             helper.SendString(_itemCollection);
             helper.SendString(_i.ID);
+
             return "OK";
         }
 
@@ -209,9 +244,11 @@ namespace InventarAPI
             helper.SendString(db);
             helper.SendString(name);
             helper.SendString(pw);
+
             string response = helper.ReadString();
             if (response != okResponse)
                 return null;
+
             helper.SendString(_itemCollection);
             int amountOfItems = helper.ReadInt();
             List<Item> items = new List<Item>();
@@ -221,19 +258,23 @@ namespace InventarAPI
                 Item item = JsonSerializer.Deserialize<Item>(json);
                 items.Add(item);
             }
+
             return items;
         }
 
         public List<string> ListItemCollections()
         {
             OpenConnection();
+
             helper.SendString("ListItemCollectionNames");
             helper.SendString(db);
             helper.SendString(name);
             helper.SendString(pw);
+
             string response = helper.ReadString();
             if (response != okResponse)
                 return null;
+
             int amountOfItemCollection = helper.ReadInt();
             List<string> itemCollections = new List<string>();
             for (int i = 0; i < amountOfItemCollection; i++)
