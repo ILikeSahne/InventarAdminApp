@@ -203,8 +203,7 @@ namespace InventarAdminApp
 
         private void showUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<UserData> userData = api.ListUsers();
-            ListUsersForm listUsers = new ListUsersForm(userData);
+            ListUsersForm listUsers = new ListUsersForm(api);
             listUsers.Show();
         }
     }

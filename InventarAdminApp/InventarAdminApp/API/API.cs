@@ -187,6 +187,14 @@ namespace InventarAPI
             return (List<UserData>) response;
         }
 
+        public string AddPermission(string _username, string _permission)
+        {
+            LoginError error;
+            object response = SendCommand(new AddPermissionCommand(_username, _permission), out error);
+
+            return error.ToString();
+        }
+
         public string AddItemCollection(string _itemCollection)
         {
             return "OK";
