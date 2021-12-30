@@ -1,13 +1,8 @@
 ﻿using InventarAPI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InventarAdminApp
@@ -22,14 +17,14 @@ namespace InventarAdminApp
         {
             InitializeComponent();
             api = new API(10000);
-            //Console.WriteLine(api.Login("bulme", "ilikesahne@gmx.at", "Pw123XYZ12").ToString());
+            // Console.WriteLine(api.Login("bulme", "ilikesahne@gmx.at", "Pw123XYZ12").ToString());
             LoadServers();
         }
 
         private void LoadServers()
         {
             serverDropDown.Items.Clear();
-            List<string> databases = api.GetDabases();
+            List<string> databases = api.SendListDatabasesCommand();
             if(databases == null)
             {
                 Error("Server is offline!");
@@ -53,7 +48,7 @@ namespace InventarAdminApp
         {
             if (!api.LoggedIn())
                 Login();
-            string response = api.CreateNewDatabase(nameInput.Text, passwordInput.Text, form.DatabaseName, form.AdminEmail, form.AdminUsername, form.AdminPassword);
+            string response = api.CreateNewDatabase(form.DatabaseName, form.AdminEmail, form.AdminUsername, form.AdminPassword);
             if (response == "OK") {
                 Success("Database " + form.DatabaseName + " created!");
                 return true;
@@ -76,7 +71,8 @@ namespace InventarAdminApp
 
         private LoginError Login()
         {
-            LoginError e = api.Login(serverDropDown.Text, nameInput.Text, passwordInput.Text);
+            api.Login(serverDropDown.Text, nameInput.Text, passwordInput.Text);
+            LoginError e = api.SendLoginCommand();
             return e;
         }
 
@@ -86,7 +82,7 @@ namespace InventarAdminApp
             if (error == LoginError.NONE)
             {
                 Success("Login successfull!");
-                ListItemCollections();
+                // ListItemCollections();
             }
             else
             {
@@ -179,7 +175,7 @@ namespace InventarAdminApp
         {
             if (!api.LoggedIn())
                 Login();
-            string response = api.AddUser(form.Username, form.Email, form.Password);
+            string response = api.AddUser(form.Email, form.Username, form.Password);
             if (response == "OK")
             {
                 Success("User added!");

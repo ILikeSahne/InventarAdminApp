@@ -22,7 +22,7 @@ namespace InventarAPI
         private RSAHelper rsaHelper;
         private StreamHelper helper;
 
-        private string db, name, pw;
+        private User user;
 
         public API(string _domain, int _port)
         {
@@ -59,14 +59,74 @@ namespace InventarAPI
             helper = new StreamHelper(rsaHelper);
         }
 
+        public void Login(string _db, string _username, string _password)
+        {
+            user = new User(_db, _username, _password);
+        }
+
         public bool LoggedIn()
         {
-            return db != null;
+            return user != null;
+        }
+
+        public object SendCommand(Command _c, out LoginError _error)
+        {
+            _error = LoginError.NONE;
+            if (!LoggedIn())
+            {
+                _error = LoginError.NOT_LOGGED_IN;
+                return "Login first";
+            }
+
+            OpenConnection();
+            LoginError e = user.Login(helper);
+            if (e != LoginError.NONE)
+            {
+                CloseConnection();
+                _error = e;
+                return e.ToString();
+            }
+
+            object response = _c.Call(user, helper);
+
+            CloseConnection();
+
+            return response;
+        }
+
+        public List<object> SendCommands(List<Command> _commands, out LoginError _error)
+        {
+            _error = LoginError.NONE;
+            List<object> errors = new List<object>();
+            if (!LoggedIn())
+            {
+                errors.Add("Login first");
+                return errors;
+            }
+
+            OpenConnection();
+            LoginError e = user.Login(helper);
+            if (e != LoginError.NONE)
+            {
+                CloseConnection();
+                _error = e;
+                errors.Add(e);
+                return errors;
+            }
+
+            foreach (Command c in _commands)
+            {
+                string response = (string) c.Call(user, helper);
+                errors.Add(response);
+            }
+
+            CloseConnection();
+
+            return errors;
         }
 
         public void CloseConnection()
         {
-            helper.SendString("Close");
             if (client != null)
             {
                 client.Close();
@@ -74,216 +134,79 @@ namespace InventarAPI
             }
         }
 
-        public List<string> GetDabases()
+        public LoginError SendLoginCommand()
         {
-            try
-            {
-                OpenConnection();
-                helper.SendString("ListDatabases");
-                List<string> databases = new List<string>();
-                int len = helper.ReadInt();
-                for (int i = 0; i < len; i++)
-                {
-                    databases.Add(helper.ReadString());
-                }
-                CloseConnection();
-                return databases;
-            } catch(Exception e)
-            {
-                return null;
-            }
+            LoginError error;
+            SendCommand(new LoginCommand(), out error);
+            return error;
         }
 
-        public LoginError Login(string _db, string _name, string _pw)
+        public List<string> SendListDatabasesCommand()
         {
-            db = _db;
-            name = _name;
-            pw = _pw;
-            try
-            {
-                OpenConnection();
-                helper.SendString("Login");
-                helper.SendString(db);
-                helper.SendString(name);
-                helper.SendString(pw);
-                string response = helper.ReadString();
-                API.WriteLine("Response: {0}", response);
-                CloseConnection();
-                return GetErrorFromString(response);
-            }
-            catch (Exception e)
-            {
-                return LoginError.SERVER_NOT_RESPONDING;
-            }
+            if(user == null)
+                user = new User("", "", "");
+            LoginError error;
+            object response = SendCommand(new ListDatabasesCommand(), out error);
+            if (user.Username == "")
+                user = null;
+            Console.WriteLine(error);
+            if (error != LoginError.NONE)
+                return new List<string>();
+            return (List<string>) response;
         }
 
-        private LoginError GetErrorFromString(string _error)
+        public string CreateNewDatabase(string _dbName, string _dbAdminEmail, string _dbAdminUsername, string _dbAdminPassword)
         {
-            foreach (LoginError e in Enum.GetValues(typeof(LoginError)))
-            {
-                if (e.ToString().Equals(_error))
-                    return e;
-            }
-            return LoginError.UNKNOWN;
+            LoginError error;
+            object response = SendCommand(new CreateNewDatabaseCommand(_dbName, _dbAdminEmail, _dbAdminUsername, _dbAdminPassword), out error);
+            if (error != LoginError.NONE)
+                return error.ToString();
+            return response.ToString();
         }
 
-        public string CreateNewDatabase(string _adminUsername, string _adminPassword, string _dbName, string _dbAdminEmail, string _dbAdminUsername, string _dbAdminPassword)
+        public string AddUser(string _email, string _username, string _password)
         {
-            OpenConnection();
-            helper.SendString("CreateNewDatabase");
-            helper.SendString(_adminUsername);
-            helper.SendString(_adminPassword);
-
-            string response = helper.ReadString();
-            if(response != okResponse)
-                return "Error: " + response;
-
-            helper.SendString(_dbName);
-            helper.SendString(_dbAdminEmail);
-            helper.SendString(_dbAdminUsername);
-            helper.SendString(_dbAdminPassword);
-
-           response = helper.ReadString();
-            if (response != okResponse)
-                return "Error: " + response;
-
-            CloseConnection();
-
-            return "OK";
-        }
-
-        public string AddUser(string username, string email, string password)
-        {
-            OpenConnection();
-
-            helper.SendString("AddNewUser");
-            helper.SendString(db);
-            helper.SendString(name);
-            helper.SendString(pw);
-
-            string response = helper.ReadString();
-            if (response != okResponse)
-                return "Error: " + response;
-
-            helper.SendString(username);
-            helper.SendString(email);
-            helper.SendString(password);
-
-            response = helper.ReadString();
-            if (response != okResponse)
-                return "Error: " + response;
-
-            return "OK";
+            LoginError error;
+            object response = SendCommand(new AddNewUserCommand(_email, _username, _password), out error);
+            if (error != LoginError.NONE)
+                return error.ToString();
+            return response.ToString();
         }
 
         public string AddItemCollection(string _itemCollection)
         {
-            OpenConnection();
-
-            helper.SendString("AddNewItemCollection");
-            helper.SendString(db);
-            helper.SendString(name);
-            helper.SendString(pw);
-
-            helper.SendString(_itemCollection);
-
-            string response = helper.ReadString();
-            if (response != okResponse)
-                return "Error: " + response;
-
             return "OK";
         }
 
         public string AddItem(Item _i, string _itemCollection)
         {
-            OpenConnection();
-
-            helper.SendString("AddNewItem");
-            helper.SendString(db);
-            helper.SendString(name);
-            helper.SendString(pw);
-
-            string response = helper.ReadString();
-            if (response != okResponse)
-                return "Error: " + response;
-
-            helper.SendString(_itemCollection);
-            string json = JsonSerializer.Serialize(_i);
-            helper.SendString(json);
-
-            response = helper.ReadString();
-            if (response != okResponse)
-                return "Error: " + response;
-
             return "OK";
         }
 
         public string DeleteItem(Item _i, string _itemCollection)
         {
-            OpenConnection();
-
-            helper.SendString("DeleteItem");
-            helper.SendString(db);
-            helper.SendString(name);
-            helper.SendString(pw);
-
-            string response = helper.ReadString();
-            if (response != okResponse)
-                return "Error: " + response;
-
-            helper.SendString(_itemCollection);
-            helper.SendString(_i.ID);
-
             return "OK";
         }
 
         public List<Item> ListItems(string _itemCollection)
         {
-            OpenConnection();
-            helper.SendString("ListItems");
-            helper.SendString(db);
-            helper.SendString(name);
-            helper.SendString(pw);
-
-            string response = helper.ReadString();
-            if (response != okResponse)
-                return null;
-
-            helper.SendString(_itemCollection);
-            int amountOfItems = helper.ReadInt();
-            List<Item> items = new List<Item>();
-            for(int i = 0; i < amountOfItems; i++)
-            {
-                string json = helper.ReadString();
-                Item item = JsonSerializer.Deserialize<Item>(json);
-                items.Add(item);
-            }
-
-            return items;
+            return null;
         }
 
         public List<string> ListItemCollections()
         {
-            OpenConnection();
-
-            helper.SendString("ListItemCollectionNames");
-            helper.SendString(db);
-            helper.SendString(name);
-            helper.SendString(pw);
-
-            string response = helper.ReadString();
-            if (response != okResponse)
-                return null;
-
-            int amountOfItemCollection = helper.ReadInt();
-            List<string> itemCollections = new List<string>();
-            for (int i = 0; i < amountOfItemCollection; i++)
-            {
-                string itemCollectionName = helper.ReadString();
-                itemCollections.Add(itemCollectionName);
-            }
-            return itemCollections;
+            return null;
         }
+
+        public static LoginError LoginErrorFromString(string _e)
+        {
+            foreach (LoginError e in Enum.GetValues(typeof(LoginError)))
+            {
+                if (e.ToString().Equals(_e))
+                    return e;
+            }
+            return LoginError.UNKNOWN;
+        } 
 
         public static void WriteLine(string _s, params object[] _args)
         {
@@ -295,6 +218,6 @@ namespace InventarAPI
 
     public enum LoginError
     {
-        NONE, SERVER_NOT_RESPONDING, WRONG_DATABASE, WRONG_USERNAME, WRONG_PASSWORD, UNKNOWN
+        NONE, SERVER_NOT_RESPONDING, WRONG_DATABASE, WRONG_USERNAME, WRONG_PASSWORD, NOT_LOGGED_IN, UNKNOWN
     }
 }

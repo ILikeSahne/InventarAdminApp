@@ -87,7 +87,14 @@
       <DependentUpon>AddNewUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="API\API.cs" />
+    <Compile Include="API\Commands\AddNewUserCommand.cs" />
+    <Compile Include="API\Commands\Command.cs" />
+    <Compile Include="API\Commands\CreateNewDatabaseCommand.cs" />
+    <Compile Include="API\Commands\ListDatabasesCommand.cs" />
+    <Compile Include="API\Commands\ListUserCommand.cs" />
+    <Compile Include="API\Commands\LoginCommand.cs" />
     <Compile Include="API\Database\Item.cs" />
+    <Compile Include="API\Database\User.cs" />
     <Compile Include="API\Error.cs" />
     <Compile Include="API\RSA\RSA.cs" />
     <Compile Include="API\RSA\RSAHelper.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventarAPI
 {
-    class StreamHelper
+    public class StreamHelper
     {
         public RSAHelper Helper { get; }
         private ASCIIEncoding ascii;

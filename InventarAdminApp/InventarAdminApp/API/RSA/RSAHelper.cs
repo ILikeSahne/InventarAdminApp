@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InventarAPI
 {
-    class RSAHelper
+    public class RSAHelper
     {
         private const int MAX_LENGTH = 86;
 
