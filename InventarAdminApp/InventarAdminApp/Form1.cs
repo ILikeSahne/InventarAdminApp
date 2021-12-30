@@ -200,5 +200,12 @@ namespace InventarAdminApp
                 Error(response);
             ListItemCollections();
         }
+
+        private void showUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<UserData> userData = api.ListUsers();
+            ListUsersForm listUsers = new ListUsersForm(userData);
+            listUsers.Show();
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace InventarAPI
         }
     }
 
-    class UserData
+    public class UserData
     {
         public string Email { get; set; }
         public string Username { get; set; }
@@ -50,6 +50,25 @@ namespace InventarAPI
         public static UserData FromJson(string _json)
         {
             return JsonSerializer.Deserialize<UserData>(_json);
+        }
+
+        public string[] ToStrings()
+        {
+            StringBuilder perms = new StringBuilder();
+            foreach (string p in Permissions)
+            {
+                perms.Append(p);
+                perms.Append(", ");
+            }
+            if(perms.Length > 2)
+                perms.Remove(perms.Length - 2, 2);
+
+            return new string[]
+            {
+                Email,
+                Username,
+                perms.ToString()
+            };
         }
     }
 }

@@ -94,3 +94,4 @@ E:\Schule\5AHEL\Diplom - new\InventarAdminApp\InventarAdminApp\InventarAdminApp\
 E:\Schule\5AHEL\Diplom - new\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.Threading.Tasks.Extensions.xml
 E:\Schule\5AHEL\Diplom - new\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\bin\Debug\System.ValueTuple.xml
 E:\Schule\5AHEL\Diplom - new\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.csproj.CopyComplete
+E:\Schule\5AHEL\Diplom - new\InventarAdminApp\InventarAdminApp\InventarAdminApp\InventarAdminApp\obj\Debug\InventarAdminApp.ListUsersForm.resources

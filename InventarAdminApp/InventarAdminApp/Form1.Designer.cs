@@ -63,6 +63,7 @@ namespace InventarAdminApp
             this.showItemsButton = new System.Windows.Forms.Button();
             this.itemCollectionInput = new System.Windows.Forms.TextBox();
             this.addItemCollectionButton = new System.Windows.Forms.Button();
+            this.showUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemTable)).BeginInit();
             this.SuspendLayout();
@@ -147,7 +148,8 @@ namespace InventarAdminApp
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewDatabaseToolStripMenuItem});
+            this.addNewDatabaseToolStripMenuItem,
+            this.showUsersToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 22);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -155,7 +157,7 @@ namespace InventarAdminApp
             // addNewDatabaseToolStripMenuItem
             // 
             this.addNewDatabaseToolStripMenuItem.Name = "addNewDatabaseToolStripMenuItem";
-            this.addNewDatabaseToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addNewDatabaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewDatabaseToolStripMenuItem.Text = "Add new Database";
             this.addNewDatabaseToolStripMenuItem.Click += new System.EventHandler(this.addNewDatabaseToolStripMenuItem_Click);
             // 
@@ -195,7 +197,7 @@ namespace InventarAdminApp
             // loginButton
             // 
             this.loginButton.Location = new System.Drawing.Point(15, 97);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(207, 23);
             this.loginButton.TabIndex = 9;
@@ -224,7 +226,7 @@ namespace InventarAdminApp
             this.Raum,
             this.RaumBezeichnung});
             this.itemTable.Location = new System.Drawing.Point(233, 21);
-            this.itemTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.itemTable.Margin = new System.Windows.Forms.Padding(2);
             this.itemTable.Name = "itemTable";
             this.itemTable.RowHeadersWidth = 50;
             this.itemTable.RowTemplate.Height = 28;
@@ -307,7 +309,7 @@ namespace InventarAdminApp
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteButton.Location = new System.Drawing.Point(8, 419);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(103, 23);
             this.deleteButton.TabIndex = 11;
@@ -338,7 +340,7 @@ namespace InventarAdminApp
             // showItemsButton
             // 
             this.showItemsButton.Location = new System.Drawing.Point(15, 185);
-            this.showItemsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.showItemsButton.Margin = new System.Windows.Forms.Padding(2);
             this.showItemsButton.Name = "showItemsButton";
             this.showItemsButton.Size = new System.Drawing.Size(207, 23);
             this.showItemsButton.TabIndex = 14;
@@ -363,6 +365,13 @@ namespace InventarAdminApp
             this.addItemCollectionButton.Text = "Add Item Collection";
             this.addItemCollectionButton.UseVisualStyleBackColor = true;
             this.addItemCollectionButton.Click += new System.EventHandler(this.addItemCollectionButton_Click);
+            // 
+            // showUsersToolStripMenuItem
+            // 
+            this.showUsersToolStripMenuItem.Name = "showUsersToolStripMenuItem";
+            this.showUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showUsersToolStripMenuItem.Text = "Show Users";
+            this.showUsersToolStripMenuItem.Click += new System.EventHandler(this.showUsersToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -433,6 +442,7 @@ namespace InventarAdminApp
         private System.Windows.Forms.Button showItemsButton;
         private System.Windows.Forms.TextBox itemCollectionInput;
         private System.Windows.Forms.Button addItemCollectionButton;
+        private System.Windows.Forms.ToolStripMenuItem showUsersToolStripMenuItem;
     }
 }
 

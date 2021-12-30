@@ -138,6 +138,7 @@ namespace InventarAPI
         {
             LoginError error;
             SendCommand(new LoginCommand(), out error);
+
             return error;
         }
 
@@ -145,11 +146,12 @@ namespace InventarAPI
         {
             if(user == null)
                 user = new User("", "", "");
+
             LoginError error;
             object response = SendCommand(new ListDatabasesCommand(), out error);
             if (user.Username == "")
                 user = null;
-            Console.WriteLine(error);
+            
             if (error != LoginError.NONE)
                 return new List<string>();
             return (List<string>) response;
@@ -159,6 +161,7 @@ namespace InventarAPI
         {
             LoginError error;
             object response = SendCommand(new CreateNewDatabaseCommand(_dbName, _dbAdminEmail, _dbAdminUsername, _dbAdminPassword), out error);
+
             if (error != LoginError.NONE)
                 return error.ToString();
             return response.ToString();
@@ -168,9 +171,20 @@ namespace InventarAPI
         {
             LoginError error;
             object response = SendCommand(new AddNewUserCommand(_email, _username, _password), out error);
+
             if (error != LoginError.NONE)
                 return error.ToString();
             return response.ToString();
+        }
+
+        public List<UserData> ListUsers()
+        {
+            LoginError error;
+            object response = SendCommand(new ListUserCommand(), out error);
+
+            if (error != LoginError.NONE)
+                return null;
+            return (List<UserData>) response;
         }
 
         public string AddItemCollection(string _itemCollection)
