@@ -36,6 +36,7 @@ namespace InventarAdminApp
             this.label1 = new System.Windows.Forms.Label();
             this.permissionInput = new System.Windows.Forms.TextBox();
             this.addPermissionButton = new System.Windows.Forms.Button();
+            this.removePermissionButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.userdataTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,11 +97,22 @@ namespace InventarAdminApp
             this.addPermissionButton.UseVisualStyleBackColor = true;
             this.addPermissionButton.Click += new System.EventHandler(this.addPermissionButton_Click);
             // 
+            // removePermissionButton
+            // 
+            this.removePermissionButton.Location = new System.Drawing.Point(16, 86);
+            this.removePermissionButton.Name = "removePermissionButton";
+            this.removePermissionButton.Size = new System.Drawing.Size(138, 23);
+            this.removePermissionButton.TabIndex = 4;
+            this.removePermissionButton.Text = "Remove";
+            this.removePermissionButton.UseVisualStyleBackColor = true;
+            this.removePermissionButton.Click += new System.EventHandler(this.removePermissionButton_Click);
+            // 
             // ListUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.removePermissionButton);
             this.Controls.Add(this.addPermissionButton);
             this.Controls.Add(this.permissionInput);
             this.Controls.Add(this.label1);
@@ -122,5 +134,6 @@ namespace InventarAdminApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox permissionInput;
         private System.Windows.Forms.Button addPermissionButton;
+        private System.Windows.Forms.Button removePermissionButton;
     }
 }

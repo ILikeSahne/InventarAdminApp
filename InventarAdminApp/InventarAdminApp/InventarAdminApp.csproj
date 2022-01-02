@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="API\API.cs" />
     <Compile Include="API\Commands\AddNewUserCommand.cs" />
+    <Compile Include="API\Commands\RemovePermissionCommand.cs" />
     <Compile Include="API\Commands\AddPermissionCommand.cs" />
     <Compile Include="API\Commands\Command.cs" />
     <Compile Include="API\Commands\CreateNewDatabaseCommand.cs" />

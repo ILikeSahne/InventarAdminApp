@@ -39,5 +39,13 @@ namespace InventarAdminApp
             Console.WriteLine(api.AddPermission(username, permissionInput.Text));
             FillTable(api.ListUsers());
         }
+
+        private void removePermissionButton_Click(object sender, EventArgs e)
+        {
+            var cells = userdataTable.SelectedCells;
+            string username = (string)cells[0].Value;
+            Console.WriteLine(api.RemovePermission(username, permissionInput.Text));
+            FillTable(api.ListUsers());
+        }
     }
 }

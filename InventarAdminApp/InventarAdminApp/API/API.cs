@@ -192,7 +192,19 @@ namespace InventarAPI
             LoginError error;
             object response = SendCommand(new AddPermissionCommand(_username, _permission), out error);
 
-            return error.ToString();
+            if (error != LoginError.NONE)
+                return null;
+            return response.ToString();
+        }
+
+        public string RemovePermission(string _username, string _permission)
+        {
+            LoginError error;
+            object response = SendCommand(new RemovePermissionCommand(_username, _permission), out error);
+
+            if (error != LoginError.NONE)
+                return null;
+            return response.ToString();
         }
 
         public string AddItemCollection(string _itemCollection)
