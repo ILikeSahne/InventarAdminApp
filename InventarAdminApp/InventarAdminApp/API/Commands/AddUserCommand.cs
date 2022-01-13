@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace InventarAPI
 {
-    class AddNewUserCommand : Command
+    class AddUserCommand : Command
     {
         private string email, username, password;
 
-        public AddNewUserCommand(string _email, string _username, string _password) : base("AddNewUser")
+        public AddUserCommand(string _email, string _username, string _password) : base("AddNewUser")
         {
             email = _email;
             username = _username;

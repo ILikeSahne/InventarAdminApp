@@ -82,7 +82,7 @@ namespace InventarAdminApp
             if (error == LoginError.NONE)
             {
                 Success("Login successfull!");
-                // ListItemCollections();
+                ListItemCollections();
             }
             else
             {
@@ -121,7 +121,7 @@ namespace InventarAdminApp
         {
             if (!api.LoggedIn())
                 Login();
-            AddNewItemForm newItem = new AddNewItemForm(AddNewItem);
+            AddNewItemForm newItem = new AddNewItemForm(AddNewItem, itemCollectionDropDown.Text);
             newItem.Show();
         }
 
@@ -129,14 +129,15 @@ namespace InventarAdminApp
         {
             if (!api.LoggedIn())
                 Login();
-            string response = api.AddItem(form.Item, itemCollectionDropDown.Text);
-            if (response == "OK")
+            Item response = api.AddItem(form.Item);
+            if (response != null)
             {
                 Success("Item added!");
+                MessageBox.Show(response.ToString());
                 return true;
             }
             else
-                Error(response);
+                Error("Item adding failed!");
             return false;
         }
 

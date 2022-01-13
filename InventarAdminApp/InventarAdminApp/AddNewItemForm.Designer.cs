@@ -54,13 +54,19 @@ namespace InventarAdminApp
             this.raumBezeichungInput = new System.Windows.Forms.TextBox();
             this.anlagenBezeichnungInput = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.statusInput = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.notizInput = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.permissionInput = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.anschaffWertInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buchWertInput)).BeginInit();
             this.SuspendLayout();
             // 
             // _sendDataButton
             // 
-            this._sendDataButton.Location = new System.Drawing.Point(13, 508);
+            this._sendDataButton.Location = new System.Drawing.Point(13, 623);
             this._sendDataButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this._sendDataButton.Name = "_sendDataButton";
             this._sendDataButton.Size = new System.Drawing.Size(348, 35);
@@ -309,11 +315,73 @@ namespace InventarAdminApp
             this.label8.TabIndex = 35;
             this.label8.Text = "Anlagenbez.";
             // 
-            // AddNewItem
+            // statusInput
+            // 
+            this.statusInput.Location = new System.Drawing.Point(156, 495);
+            this.statusInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.statusInput.Name = "statusInput";
+            this.statusInput.Size = new System.Drawing.Size(211, 26);
+            this.statusInput.TabIndex = 38;
+            this.statusInput.Text = "Vorhanden";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(17, 498);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 20);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Status";
+            // 
+            // notizInput
+            // 
+            this.notizInput.Location = new System.Drawing.Point(156, 531);
+            this.notizInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.notizInput.Name = "notizInput";
+            this.notizInput.Size = new System.Drawing.Size(211, 26);
+            this.notizInput.TabIndex = 40;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(17, 534);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 20);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Notiz";
+            // 
+            // permissionInput
+            // 
+            this.permissionInput.Location = new System.Drawing.Point(156, 567);
+            this.permissionInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.permissionInput.Name = "permissionInput";
+            this.permissionInput.Size = new System.Drawing.Size(211, 26);
+            this.permissionInput.TabIndex = 42;
+            this.permissionInput.Text = "admin";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(17, 570);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(86, 20);
+            this.label15.TabIndex = 41;
+            this.label15.Text = "Permission";
+            // 
+            // AddNewItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 562);
+            this.ClientSize = new System.Drawing.Size(386, 672);
+            this.Controls.Add(this.permissionInput);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.notizInput);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.statusInput);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.anlagenBezeichnungInput);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.raumBezeichungInput);
@@ -339,7 +407,7 @@ namespace InventarAdminApp
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "AddNewItem";
+            this.Name = "AddNewItemForm";
             this.Text = "AddNewItem";
             ((System.ComponentModel.ISupportInitialize)(this.anschaffWertInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buchWertInput)).EndInit();
@@ -375,5 +443,11 @@ namespace InventarAdminApp
         private System.Windows.Forms.TextBox raumBezeichungInput;
         private System.Windows.Forms.TextBox anlagenBezeichnungInput;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox statusInput;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox notizInput;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox permissionInput;
+        private System.Windows.Forms.Label label15;
     }
 }

@@ -8,6 +8,7 @@ namespace InventarAPI
 {
     public class Item
     {
+        public string ItemCollectionName { get; set; }
         public string ID { get; set; }
         public string Anlage { get; set; }
         public string Unternummer { get; set; }
@@ -23,12 +24,13 @@ namespace InventarAPI
         public string RaumBezeichnung { get; set; }
         public string Status { get; set; }
         public string Notiz { get; set; }
-        public List<Image> Bilder { get; set; }
+        public List<byte[]> Bilder { get; set; }
         public List<string> Verlauf { get; set; }
+        public string Permission { get; set; }
 
         public Item()
         {
-            
+            ID = "";
         }
 
         public string[] ToStrings()
@@ -49,7 +51,8 @@ namespace InventarAPI
                 Raum,
                 RaumBezeichnung,
                 Status,
-                Notiz
+                Notiz,
+                Permission
             };
         }
 

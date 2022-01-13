@@ -170,7 +170,7 @@ namespace InventarAPI
         public string AddUser(string _email, string _username, string _password)
         {
             LoginError error;
-            object response = SendCommand(new AddNewUserCommand(_email, _username, _password), out error);
+            object response = SendCommand(new AddUserCommand(_email, _username, _password), out error);
 
             if (error != LoginError.NONE)
                 return error.ToString();
@@ -212,9 +212,14 @@ namespace InventarAPI
             return "OK";
         }
 
-        public string AddItem(Item _i, string _itemCollection)
+        public Item AddItem(Item _i)
         {
-            return "OK";
+            LoginError error;
+            object response = SendCommand(new AddItemCommand(_i), out error);
+
+            if (error != LoginError.NONE)
+                return null;
+            return (Item) response;
         }
 
         public string DeleteItem(Item _i, string _itemCollection)
@@ -229,7 +234,12 @@ namespace InventarAPI
 
         public List<string> ListItemCollections()
         {
-            return null;
+            LoginError error;
+            object response = SendCommand(new ListItemCollectionsCommand(), out error);
+
+            if (error != LoginError.NONE)
+                return null;
+            return (List<string>)response;
         }
 
         public static LoginError LoginErrorFromString(string _e)

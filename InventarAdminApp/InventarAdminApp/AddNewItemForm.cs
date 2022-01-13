@@ -17,15 +17,17 @@ namespace InventarAdminApp
 
         private Func<AddNewItemForm, bool> onDataSendClick;
 
-        public AddNewItemForm(Func<AddNewItemForm, bool> _onDataSendClick)
+        public AddNewItemForm(Func<AddNewItemForm, bool> _onDataSendClick, string _itemCollection)
         {
             InitializeComponent();
             onDataSendClick = _onDataSendClick;
+            Item = new Item();
+            Item.ItemCollectionName = _itemCollection;
         }
 
         private void _sendDataButton_Click(object sender, EventArgs e)
         {
-            Item = new Item();
+            Item.ID = "";
             Item.Anlage = anlageInput.Text;
             Item.Unternummer = unternummerInput.Text;
             Item.AktuelleInventarNummer = aktuelleNummerInput.Text;
@@ -38,10 +40,11 @@ namespace InventarAdminApp
             Item.KfzKennzeichen = kfzKennzeichenInput.Text;
             Item.Raum = raumInput.Text;
             Item.RaumBezeichnung = raumBezeichungInput.Text;
-            Item.Status = "Vorhanden";
-            Item.Notiz = "";
-            Item.Bilder = new List<Image>();
+            Item.Status = statusInput.Text;
+            Item.Notiz = notizInput.Text;
+            Item.Bilder = new List<byte[]>();
             Item.Verlauf = new List<string>();
+            Item.Permission = permissionInput.Text;
             if (onDataSendClick(this))
                 Close();
         }
