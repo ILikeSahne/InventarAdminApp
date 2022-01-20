@@ -194,7 +194,7 @@ namespace InventarAdminApp
 
         private void addItemCollectionButton_Click(object sender, EventArgs e)
         {
-            string response = api.AddItemCollection(itemCollectionInput.Text);
+            string response = api.AddItemCollection(itemCollectionNameInput.Text, itemCollectionPermissionInput.Text);
             if (response == "OK")
                 Success("Item Collection added!");
             else

@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace InventarAPI
 {
-    class AddUserCommand : Command
+    class AddItemCollectionCommand : Command
     {
-        private string email, username, password;
+        private string name, permission;
 
-        public AddUserCommand(string _email, string _username, string _password) : base("AddUser")
+        public AddItemCollectionCommand(string _name, string _permission) : base("AddItemCollection")
         {
-            email = _email;
-            username = _username;
-            password = _password;
+            name = _name;
+            permission = _permission;
         }
 
         public override object Execute(User _u, StreamHelper _helper)
@@ -23,9 +22,8 @@ namespace InventarAPI
             if (response != okResponse)
                 return response;
 
-            _helper.SendString(email);
-            _helper.SendString(username);
-            _helper.SendString(password);
+            _helper.SendString(name);
+            _helper.SendString(permission);
 
             response = _helper.ReadString();
             return response;

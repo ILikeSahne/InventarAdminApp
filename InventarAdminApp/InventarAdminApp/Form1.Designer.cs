@@ -39,6 +39,7 @@ namespace InventarAdminApp
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,9 +62,11 @@ namespace InventarAdminApp
             this.label4 = new System.Windows.Forms.Label();
             this.itemCollectionDropDown = new System.Windows.Forms.ComboBox();
             this.showItemsButton = new System.Windows.Forms.Button();
-            this.itemCollectionInput = new System.Windows.Forms.TextBox();
+            this.itemCollectionNameInput = new System.Windows.Forms.TextBox();
             this.addItemCollectionButton = new System.Windows.Forms.Button();
-            this.showUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.itemCollectionPermissionInput = new System.Windows.Forms.TextBox();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemTable)).BeginInit();
             this.SuspendLayout();
@@ -72,76 +75,84 @@ namespace InventarAdminApp
             // 
             this.serverDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.serverDropDown.FormattingEnabled = true;
-            this.serverDropDown.Location = new System.Drawing.Point(73, 21);
+            this.serverDropDown.Location = new System.Drawing.Point(110, 32);
+            this.serverDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.serverDropDown.Name = "serverDropDown";
-            this.serverDropDown.Size = new System.Drawing.Size(150, 21);
+            this.serverDropDown.Size = new System.Drawing.Size(223, 28);
             this.serverDropDown.Sorted = true;
             this.serverDropDown.TabIndex = 0;
             // 
             // nameInput
             // 
-            this.nameInput.Location = new System.Drawing.Point(73, 49);
+            this.nameInput.Location = new System.Drawing.Point(110, 75);
+            this.nameInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nameInput.Name = "nameInput";
-            this.nameInput.Size = new System.Drawing.Size(150, 20);
+            this.nameInput.Size = new System.Drawing.Size(223, 26);
             this.nameInput.TabIndex = 1;
             this.nameInput.Text = "TestUser";
             // 
             // passwordInput
             // 
-            this.passwordInput.Location = new System.Drawing.Point(73, 75);
+            this.passwordInput.Location = new System.Drawing.Point(110, 115);
+            this.passwordInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.passwordInput.Name = "passwordInput";
             this.passwordInput.PasswordChar = '*';
-            this.passwordInput.Size = new System.Drawing.Size(150, 20);
+            this.passwordInput.Size = new System.Drawing.Size(223, 26);
             this.passwordInput.TabIndex = 2;
             this.passwordInput.Text = "Test123!!!";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(18, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Server";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 52);
+            this.label2.Location = new System.Drawing.Point(18, 80);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Username";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 78);
+            this.label3.Location = new System.Drawing.Point(18, 120);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Password";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 33);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuStrip2
             // 
+            this.menuStrip2.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
             this.databaseToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(1200, 33);
             this.menuStrip2.TabIndex = 7;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -151,15 +162,22 @@ namespace InventarAdminApp
             this.addNewDatabaseToolStripMenuItem,
             this.showUsersToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 22);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(81, 29);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // addNewDatabaseToolStripMenuItem
             // 
             this.addNewDatabaseToolStripMenuItem.Name = "addNewDatabaseToolStripMenuItem";
-            this.addNewDatabaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewDatabaseToolStripMenuItem.Size = new System.Drawing.Size(264, 34);
             this.addNewDatabaseToolStripMenuItem.Text = "Add new Database";
             this.addNewDatabaseToolStripMenuItem.Click += new System.EventHandler(this.addNewDatabaseToolStripMenuItem_Click);
+            // 
+            // showUsersToolStripMenuItem
+            // 
+            this.showUsersToolStripMenuItem.Name = "showUsersToolStripMenuItem";
+            this.showUsersToolStripMenuItem.Size = new System.Drawing.Size(264, 34);
+            this.showUsersToolStripMenuItem.Text = "Show Users";
+            this.showUsersToolStripMenuItem.Click += new System.EventHandler(this.showUsersToolStripMenuItem_Click);
             // 
             // databaseToolStripMenuItem
             // 
@@ -167,20 +185,20 @@ namespace InventarAdminApp
             this.addNewItemToolStripMenuItem,
             this.addNewUserToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
             // addNewItemToolStripMenuItem
             // 
             this.addNewItemToolStripMenuItem.Name = "addNewItemToolStripMenuItem";
-            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(226, 34);
             this.addNewItemToolStripMenuItem.Text = "Add new Item";
             this.addNewItemToolStripMenuItem.Click += new System.EventHandler(this.addNewItemToolStripMenuItem_Click);
             // 
             // addNewUserToolStripMenuItem
             // 
             this.addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
-            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(226, 34);
             this.addNewUserToolStripMenuItem.Text = "Add new User";
             this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.addNewUserToolStripMenuItem_Click);
             // 
@@ -188,18 +206,18 @@ namespace InventarAdminApp
             // 
             this.errorLabel.AutoSize = true;
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(12, 122);
+            this.errorLabel.Location = new System.Drawing.Point(18, 188);
+            this.errorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(85, 13);
+            this.errorLabel.Size = new System.Drawing.Size(125, 20);
             this.errorLabel.TabIndex = 8;
             this.errorLabel.Text = "Nothing here yet";
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(15, 97);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(2);
+            this.loginButton.Location = new System.Drawing.Point(22, 149);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(207, 23);
+            this.loginButton.Size = new System.Drawing.Size(310, 35);
             this.loginButton.TabIndex = 9;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -225,12 +243,11 @@ namespace InventarAdminApp
             this.KfzKennzeichen,
             this.Raum,
             this.RaumBezeichnung});
-            this.itemTable.Location = new System.Drawing.Point(233, 21);
-            this.itemTable.Margin = new System.Windows.Forms.Padding(2);
+            this.itemTable.Location = new System.Drawing.Point(350, 32);
             this.itemTable.Name = "itemTable";
             this.itemTable.RowHeadersWidth = 50;
             this.itemTable.RowTemplate.Height = 28;
-            this.itemTable.Size = new System.Drawing.Size(559, 421);
+            this.itemTable.Size = new System.Drawing.Size(838, 648);
             this.itemTable.TabIndex = 10;
             // 
             // Anlage
@@ -308,10 +325,9 @@ namespace InventarAdminApp
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteButton.Location = new System.Drawing.Point(8, 419);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
+            this.deleteButton.Location = new System.Drawing.Point(12, 645);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(103, 23);
+            this.deleteButton.Size = new System.Drawing.Size(154, 35);
             this.deleteButton.TabIndex = 11;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -320,10 +336,9 @@ namespace InventarAdminApp
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 144);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(18, 222);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.Size = new System.Drawing.Size(114, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "Item Collection";
             // 
@@ -331,55 +346,79 @@ namespace InventarAdminApp
             // 
             this.itemCollectionDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemCollectionDropDown.FormattingEnabled = true;
-            this.itemCollectionDropDown.Location = new System.Drawing.Point(15, 161);
+            this.itemCollectionDropDown.Location = new System.Drawing.Point(22, 248);
+            this.itemCollectionDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.itemCollectionDropDown.Name = "itemCollectionDropDown";
-            this.itemCollectionDropDown.Size = new System.Drawing.Size(209, 21);
+            this.itemCollectionDropDown.Size = new System.Drawing.Size(312, 28);
             this.itemCollectionDropDown.Sorted = true;
             this.itemCollectionDropDown.TabIndex = 13;
             // 
             // showItemsButton
             // 
-            this.showItemsButton.Location = new System.Drawing.Point(15, 185);
-            this.showItemsButton.Margin = new System.Windows.Forms.Padding(2);
+            this.showItemsButton.Location = new System.Drawing.Point(22, 285);
             this.showItemsButton.Name = "showItemsButton";
-            this.showItemsButton.Size = new System.Drawing.Size(207, 23);
+            this.showItemsButton.Size = new System.Drawing.Size(310, 35);
             this.showItemsButton.TabIndex = 14;
             this.showItemsButton.Text = "Show Items";
             this.showItemsButton.UseVisualStyleBackColor = true;
             this.showItemsButton.Click += new System.EventHandler(this.showItemsButton_Click);
             // 
-            // itemCollectionInput
+            // itemCollectionNameInput
             // 
-            this.itemCollectionInput.Location = new System.Drawing.Point(15, 213);
-            this.itemCollectionInput.Name = "itemCollectionInput";
-            this.itemCollectionInput.Size = new System.Drawing.Size(207, 20);
-            this.itemCollectionInput.TabIndex = 15;
+            this.itemCollectionNameInput.Location = new System.Drawing.Point(110, 328);
+            this.itemCollectionNameInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.itemCollectionNameInput.Name = "itemCollectionNameInput";
+            this.itemCollectionNameInput.Size = new System.Drawing.Size(220, 26);
+            this.itemCollectionNameInput.TabIndex = 15;
             // 
             // addItemCollectionButton
             // 
-            this.addItemCollectionButton.Location = new System.Drawing.Point(15, 238);
-            this.addItemCollectionButton.Margin = new System.Windows.Forms.Padding(2);
+            this.addItemCollectionButton.Location = new System.Drawing.Point(22, 398);
             this.addItemCollectionButton.Name = "addItemCollectionButton";
-            this.addItemCollectionButton.Size = new System.Drawing.Size(207, 23);
+            this.addItemCollectionButton.Size = new System.Drawing.Size(310, 35);
             this.addItemCollectionButton.TabIndex = 16;
             this.addItemCollectionButton.Text = "Add Item Collection";
             this.addItemCollectionButton.UseVisualStyleBackColor = true;
             this.addItemCollectionButton.Click += new System.EventHandler(this.addItemCollectionButton_Click);
             // 
-            // showUsersToolStripMenuItem
+            // label5
             // 
-            this.showUsersToolStripMenuItem.Name = "showUsersToolStripMenuItem";
-            this.showUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showUsersToolStripMenuItem.Text = "Show Users";
-            this.showUsersToolStripMenuItem.Click += new System.EventHandler(this.showUsersToolStripMenuItem_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 331);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 20);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 367);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 20);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Permission";
+            // 
+            // itemCollectionPermissionInput
+            // 
+            this.itemCollectionPermissionInput.Location = new System.Drawing.Point(110, 364);
+            this.itemCollectionPermissionInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.itemCollectionPermissionInput.Name = "itemCollectionPermissionInput";
+            this.itemCollectionPermissionInput.Size = new System.Drawing.Size(220, 26);
+            this.itemCollectionPermissionInput.TabIndex = 19;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.itemCollectionPermissionInput);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.addItemCollectionButton);
-            this.Controls.Add(this.itemCollectionInput);
+            this.Controls.Add(this.itemCollectionNameInput);
             this.Controls.Add(this.showItemsButton);
             this.Controls.Add(this.itemCollectionDropDown);
             this.Controls.Add(this.label4);
@@ -396,6 +435,7 @@ namespace InventarAdminApp
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.menuStrip2.ResumeLayout(false);
@@ -440,9 +480,12 @@ namespace InventarAdminApp
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox itemCollectionDropDown;
         private System.Windows.Forms.Button showItemsButton;
-        private System.Windows.Forms.TextBox itemCollectionInput;
+        private System.Windows.Forms.TextBox itemCollectionNameInput;
         private System.Windows.Forms.Button addItemCollectionButton;
         private System.Windows.Forms.ToolStripMenuItem showUsersToolStripMenuItem;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox itemCollectionPermissionInput;
     }
 }
 

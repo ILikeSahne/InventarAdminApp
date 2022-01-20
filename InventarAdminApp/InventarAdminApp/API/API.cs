@@ -207,9 +207,14 @@ namespace InventarAPI
             return response.ToString();
         }
 
-        public string AddItemCollection(string _itemCollection)
+        public string AddItemCollection(string _name, string _permission)
         {
-            return "OK";
+            LoginError error;
+            object response = SendCommand(new AddItemCollectionCommand(_name, _permission), out error);
+
+            if (error != LoginError.NONE)
+                return error.ToString();
+            return response.ToString();
         }
 
         public Item AddItem(Item _i)
@@ -229,7 +234,12 @@ namespace InventarAPI
 
         public List<Item> ListItems(string _itemCollection)
         {
-            return null;
+            LoginError error;
+            object response = SendCommand(new ListItemsCommand(_itemCollection), out error);
+
+            if (error != LoginError.NONE)
+                return null;
+            return (List<Item>)response;
         }
 
         public List<string> ListItemCollections()
