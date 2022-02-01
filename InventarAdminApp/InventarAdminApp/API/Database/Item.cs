@@ -24,6 +24,7 @@ namespace InventarAPI
         public string RaumBezeichnung { get; set; }
         public string Status { get; set; }
         public string Notiz { get; set; }
+        public bool BarcodeLabelOk { get; set; }
         public List<byte[]> Bilder { get; set; }
         public List<string> Verlauf { get; set; }
         public string Permission { get; set; }
@@ -52,6 +53,7 @@ namespace InventarAPI
                 RaumBezeichnung,
                 Status,
                 Notiz,
+                BarcodeLabelOk.ToString(),
                 Permission
             };
         }
