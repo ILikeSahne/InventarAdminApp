@@ -30,6 +30,7 @@ namespace InventarAPI
             {
                 Item item = JsonSerializer.Deserialize<Item>(_helper.ReadString());
                 items.Add(item);
+                item.ItemCollectionName = name;
             }
             return items;
         }

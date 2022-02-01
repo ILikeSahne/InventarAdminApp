@@ -227,9 +227,14 @@ namespace InventarAPI
             return (Item) response;
         }
 
-        public string DeleteItem(Item _i, string _itemCollection)
+        public string RemoveItem(Item _i)
         {
-            return "OK";
+            LoginError error;
+            object response = SendCommand(new RemoveItemCommand(_i), out error);
+
+            if (error != LoginError.NONE)
+                return null;
+            return response.ToString();
         }
 
         public List<Item> ListItems(string _itemCollection)

@@ -67,5 +67,13 @@ namespace InventarAPI
             }
             return builder.ToString();
         }
+
+        public static Item GetItemEntry(string _collectionName, string _id)
+        {
+            Item i = new Item();
+            i.ID = _id;
+            i.ItemCollectionName = _collectionName;
+            return i;
+        }
     }
 }

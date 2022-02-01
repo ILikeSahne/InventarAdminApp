@@ -90,6 +90,7 @@
     <Compile Include="API\Commands\AddItemCommand.cs" />
     <Compile Include="API\Commands\AddItemCollectionCommand.cs" />
     <Compile Include="API\Commands\AddUserCommand.cs" />
+    <Compile Include="API\Commands\RemoveItemCommand.cs" />
     <Compile Include="API\Commands\ListItemCollectionsCommand.cs" />
     <Compile Include="API\Commands\ListItemsCommand.cs" />
     <Compile Include="API\Commands\RemovePermissionCommand.cs" />

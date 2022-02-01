@@ -153,7 +153,8 @@ namespace InventarAdminApp
             foreach(DataGridViewRow row in rows)
             {
                 Item i = items[row.Index];
-                string response = api.DeleteItem(i, itemCollectionDropDown.Text);
+                
+                string response = api.RemoveItem(i);
                 if (response == "OK")
                 {
                     Success("Item(s) deleted!");
