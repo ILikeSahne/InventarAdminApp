@@ -257,6 +257,16 @@ namespace InventarAPI
             return (List<Item>)response;
         }
 
+        public Item LoadItemImages(Item _i)
+        {
+            LoginError error;
+            object response = SendCommand(new ListItemImagesCommand(_i), out error);
+
+            if (error != LoginError.NONE)
+                return null;
+            return (Item) response;
+        }
+
         public List<string> ListItemCollections()
         {
             LoginError error;

@@ -21,6 +21,8 @@ namespace InventarAPI
             _helper.SendString(item.ID);
 
             string response = _helper.ReadString();
+            if(response != okResponse)
+                throw new Exception(response);
             return response;
         }
     }

@@ -15,7 +15,7 @@ namespace InventarAPI
         {
             string response = _helper.ReadString();
             if (response != okResponse)
-                return response;
+                throw new Exception(response);
 
             List<UserData> users = new List<UserData>();
             int amount = _helper.ReadInt();

@@ -20,6 +20,8 @@ namespace InventarAPI
             _helper.SendString(collectionName);
 
             string response = _helper.ReadString();
+            if(response != okResponse)
+                throw new Exception(response);
             return response;
         }
     }

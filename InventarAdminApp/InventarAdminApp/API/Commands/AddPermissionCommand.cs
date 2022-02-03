@@ -20,7 +20,7 @@ namespace InventarAPI
         {
             string response = _helper.ReadString();
             if (response != okResponse)
-                return response;
+                throw new Exception(response);
 
             _helper.SendString(username);
             _helper.SendString(permission);

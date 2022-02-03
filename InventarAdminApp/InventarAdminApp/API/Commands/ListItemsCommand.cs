@@ -22,7 +22,7 @@ namespace InventarAPI
 
             string response = _helper.ReadString();
             if (response != okResponse)
-                return response;
+                throw new Exception(response);
 
             int amount = _helper.ReadInt();
             List<Item> items = new List<Item>();
