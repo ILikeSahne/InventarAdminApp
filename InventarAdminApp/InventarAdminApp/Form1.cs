@@ -218,5 +218,17 @@ namespace InventarAdminApp
                 Error(response);
             ListItemCollections();
         }
+
+        private void loadExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+            int response = api.AddExcelItems(itemCollectionDropDown.Text, openFileDialog.FileName);
+            if (response >= 0)
+                Success(response + " Items added!");
+            else
+                Error("There was an Error while adding the Items!");
+            ListItemCollections();
+        }
     }
 }

@@ -247,6 +247,16 @@ namespace InventarAPI
             return response.ToString();
         }
 
+        public int AddExcelItems(string _name, string _filename)
+        {
+            LoginError error;
+            object response = SendCommand(new AddExcelItemsCommand(_name, _filename), out error);
+
+            if (error != LoginError.NONE)
+                return -1;
+            return (int) response;
+        }
+
         public List<Item> ListItems(string _itemCollection)
         {
             LoginError error;

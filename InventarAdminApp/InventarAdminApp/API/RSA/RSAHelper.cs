@@ -202,7 +202,6 @@ namespace InventarAPI
             }
             return data;
         }
-
     }
 
     enum RSAError

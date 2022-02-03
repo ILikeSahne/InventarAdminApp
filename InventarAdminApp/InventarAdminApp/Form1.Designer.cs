@@ -68,6 +68,8 @@ namespace InventarAdminApp
             this.label6 = new System.Windows.Forms.Label();
             this.itemCollectionPermissionInput = new System.Windows.Forms.TextBox();
             this.removeItemCollectionButton = new System.Windows.Forms.Button();
+            this.loadExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemTable)).BeginInit();
             this.SuspendLayout();
@@ -176,7 +178,8 @@ namespace InventarAdminApp
             // 
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewItemToolStripMenuItem,
-            this.addNewUserToolStripMenuItem});
+            this.addNewUserToolStripMenuItem,
+            this.loadExcelFileToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
             this.databaseToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             this.databaseToolStripMenuItem.Text = "Database";
@@ -184,14 +187,14 @@ namespace InventarAdminApp
             // addNewItemToolStripMenuItem
             // 
             this.addNewItemToolStripMenuItem.Name = "addNewItemToolStripMenuItem";
-            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewItemToolStripMenuItem.Text = "Add new Item";
             this.addNewItemToolStripMenuItem.Click += new System.EventHandler(this.addNewItemToolStripMenuItem_Click);
             // 
             // addNewUserToolStripMenuItem
             // 
             this.addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
-            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewUserToolStripMenuItem.Text = "Add new User";
             this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.addNewUserToolStripMenuItem_Click);
             // 
@@ -413,6 +416,17 @@ namespace InventarAdminApp
             this.removeItemCollectionButton.UseVisualStyleBackColor = true;
             this.removeItemCollectionButton.Click += new System.EventHandler(this.removeItemCollectionButton_Click);
             // 
+            // loadExcelFileToolStripMenuItem
+            // 
+            this.loadExcelFileToolStripMenuItem.Name = "loadExcelFileToolStripMenuItem";
+            this.loadExcelFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadExcelFileToolStripMenuItem.Text = "Load Excel File";
+            this.loadExcelFileToolStripMenuItem.Click += new System.EventHandler(this.loadExcelFileToolStripMenuItem_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,6 +505,8 @@ namespace InventarAdminApp
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox itemCollectionPermissionInput;
         private System.Windows.Forms.Button removeItemCollectionButton;
+        private System.Windows.Forms.ToolStripMenuItem loadExcelFileToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 
