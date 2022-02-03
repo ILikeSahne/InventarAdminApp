@@ -208,5 +208,15 @@ namespace InventarAdminApp
             ListUsersForm listUsers = new ListUsersForm(api);
             listUsers.Show();
         }
+
+        private void removeItemCollectionButton_Click(object sender, EventArgs e)
+        {
+            string response = api.RemoveItemCollection(itemCollectionDropDown.Text);
+            if (response == "OK")
+                Success("Item Collection removed!");
+            else
+                Error(response);
+            ListItemCollections();
+        }
     }
 }

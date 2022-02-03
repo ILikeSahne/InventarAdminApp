@@ -217,6 +217,16 @@ namespace InventarAPI
             return response.ToString();
         }
 
+        public string RemoveItemCollection(string _name)
+        {
+            LoginError error;
+            object response = SendCommand(new RemoveItemCollectionCommand(_name), out error);
+
+            if (error != LoginError.NONE)
+                return error.ToString();
+            return response.ToString();
+        }
+
         public Item AddItem(Item _i)
         {
             LoginError error;
