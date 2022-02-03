@@ -39,6 +39,7 @@ namespace InventarAPI
         private void OpenConnection()
         {
             client = new TcpClient();
+            client.NoDelay = true;
             IAsyncResult result = client.BeginConnect(Dns.GetHostAddresses(domain)[0], port, null, null);
 
             bool success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));

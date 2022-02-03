@@ -26,12 +26,15 @@ namespace InventarAPI
 
             int amount = _helper.ReadInt();
             List<Item> items = new List<Item>();
-            for(int i = 0; i < amount; i++)
+            DateTime now = DateTime.Now;
+            _helper.SendInt(items.Count);
+            for (int i = 0; i < amount; i++)
             {
                 Item item = JsonSerializer.Deserialize<Item>(_helper.ReadString());
-                items.Add(item);
                 item.ItemCollectionName = name;
+                items.Add(item);
             }
+            Console.WriteLine(DateTime.Now - now);
             return items;
         }
 

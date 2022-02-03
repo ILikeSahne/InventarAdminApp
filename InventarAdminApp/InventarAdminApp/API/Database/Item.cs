@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
 namespace InventarAPI
@@ -76,6 +77,41 @@ namespace InventarAPI
             i.ID = _id;
             i.ItemCollectionName = _collectionName;
             return i;
+        }
+
+        public static Item FromByteArray(byte[] data)
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                //ItemStorage i = (ItemStorage) bf.Deserialize(ms);
+                Item i = new Item();
+
+                i.ItemCollectionName = (string) bf.Deserialize(ms);
+                i.ID = (string) bf.Deserialize(ms);
+
+                i.Anlage = (string) bf.Deserialize(ms);
+                i.Unternummer = (string) bf.Deserialize(ms);
+                i.AktuelleInventarNummer = (string) bf.Deserialize(ms);
+                i.AktivierungAm = (DateTime) bf.Deserialize(ms);
+                i.Anlagenbezeichnung = (string) bf.Deserialize(ms);
+                i.Serialnummer = (string) bf.Deserialize(ms);
+                i.AnschaffungsWert = (double) bf.Deserialize(ms);
+                i.BuchWert = (double) bf.Deserialize(ms);
+                i.Waehrung = (string) bf.Deserialize(ms);
+                i.KfzKennzeichen = (string) bf.Deserialize(ms);
+                i.Raum = (string) bf.Deserialize(ms);
+                i.RaumBezeichnung = (string) bf.Deserialize(ms);
+
+                i.Status = (string) bf.Deserialize(ms);
+                i.Notiz = (string) bf.Deserialize(ms);
+                i.BarcodeLabelOk = (bool) bf.Deserialize(ms);
+                i.Bilder = (List<byte[]>) bf.Deserialize(ms);
+                i.Verlauf = (List<string>) bf.Deserialize(ms);
+                i.Permission = (string) bf.Deserialize(ms);
+
+                return i;
+            }
         }
     }
 }
