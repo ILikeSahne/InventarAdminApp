@@ -92,6 +92,7 @@
     <Compile Include="API\Commands\AddItemCollectionCommand.cs" />
     <Compile Include="API\Commands\AddExcelItemsCommand.cs" />
     <Compile Include="API\Commands\AddUserCommand.cs" />
+    <Compile Include="API\Commands\ChangeItemImagesCommand.cs" />
     <Compile Include="API\Commands\ListItemImagesCommand.cs" />
     <Compile Include="API\Commands\RemoveItemCollectionCommand.cs" />
     <Compile Include="API\Commands\RemoveItemCommand.cs" />
