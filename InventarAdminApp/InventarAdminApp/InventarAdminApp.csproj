@@ -87,6 +87,7 @@
       <DependentUpon>AddNewUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="API\API.cs" />
+    <Compile Include="API\Commands\CopyItemCollectionCommand.cs" />
     <Compile Include="API\Commands\AddItemCommand.cs" />
     <Compile Include="API\Commands\AddItemCollectionCommand.cs" />
     <Compile Include="API\Commands\AddExcelItemsCommand.cs" />

@@ -24,7 +24,7 @@ namespace InventarAdminApp
         private void LoadServers()
         {
             serverDropDown.Items.Clear();
-            List<string> databases = api.SendListDatabasesCommand();
+            List<string> databases = api.ListDatabases();
             if(databases == null)
             {
                 Error("Server is offline!");
@@ -72,7 +72,7 @@ namespace InventarAdminApp
         private LoginError Login()
         {
             api.Login(serverDropDown.Text, nameInput.Text, passwordInput.Text);
-            LoginError e = api.SendLoginCommand();
+            LoginError e = api.SendLogin();
             return e;
         }
 
@@ -228,6 +228,16 @@ namespace InventarAdminApp
                 Success(response + " Items added!");
             else
                 Error("There was an Error while adding the Items!");
+            ListItemCollections();
+        }
+
+        private void copyItemCollectionButton_Click(object sender, EventArgs e)
+        {
+            string response = api.CopyItemCollection(itemCollectionDropDown.Text, itemCollectionNameInput.Text, itemCollectionPermissionInput.Text);
+            if (response == "OK")
+                Success("Item Collection cloned!");
+            else
+                Error(response);
             ListItemCollections();
         }
     }

@@ -23,7 +23,7 @@ namespace InventarAPI
             _helper.SendString(name);
 
             string response = _helper.ReadString();
-            if (response != okResponse)
+            if (response != okResponse) 
                 throw new Exception(response);
 
             DateTime now = DateTime.Now;

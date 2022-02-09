@@ -137,7 +137,7 @@ namespace InventarAPI
             }
         }
 
-        public LoginError SendLoginCommand()
+        public LoginError SendLogin()
         {
             LoginError error;
             SendCommand(new LoginCommand(), out error);
@@ -145,7 +145,7 @@ namespace InventarAPI
             return error;
         }
 
-        public List<string> SendListDatabasesCommand()
+        public List<string> ListDatabases()
         {
             if(user == null)
                 user = new User("", "", "");
@@ -290,6 +290,16 @@ namespace InventarAPI
             return (List<string>)response;
         }
 
+        public string CopyItemCollection(string _nameToCopy, string _newName, string _permission)
+        {
+            LoginError error;
+            object response = SendCommand(new CopyItemCollectionCommand(_nameToCopy, _newName, _permission), out error);
+
+            if (error != LoginError.NONE)
+                return error.ToString();
+            return response.ToString();
+        }
+
         public static LoginError LoginErrorFromString(string _e)
         {
             foreach (LoginError e in Enum.GetValues(typeof(LoginError)))
@@ -298,7 +308,7 @@ namespace InventarAPI
                     return e;
             }
             return LoginError.UNKNOWN;
-        } 
+        }
 
         public static void WriteLine(string _s, params object[] _args)
         {
