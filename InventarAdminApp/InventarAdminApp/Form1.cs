@@ -247,10 +247,10 @@ namespace InventarAdminApp
 
         private void abschreibungToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            byte[] pdf = api.GeneratePDF(DocumentType.ABSCHREIBUNG);
+
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
                 return;
-
-            byte[] pdf = api.GeneratePDF(DocumentType.ABSCHREIBUNG);
             File.WriteAllBytes(saveFileDialog.FileName, pdf);
         }
     }

@@ -32,22 +32,5 @@ namespace InventarAPI
             Console.WriteLine(DateTime.Now - now);
             return items;
         }
-
-        public static string Unzip(byte[] compressed)
-        {
-            string ret = null;
-            using (var inputMemory = new MemoryStream(compressed))
-            {
-                using (var gz = new GZipStream(inputMemory, CompressionMode.Decompress))
-                {
-                    using (var sr = new StreamReader(gz, Encoding.UTF8))
-                    {
-                        ret = sr.ReadToEnd();
-                    }
-                }
-            }
-            return ret;
-        }
-
     }
 }
