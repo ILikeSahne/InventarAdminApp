@@ -300,6 +300,16 @@ namespace InventarAPI
             return response.ToString();
         }
 
+        public byte[] GeneratePDF(DocumentType _dt)
+        {
+            LoginError error;
+            object response = SendCommand(new GeneratePDFCommand(_dt), out error);
+
+            if (error != LoginError.NONE)
+                return null;
+            return (byte[]) response;
+        }
+
         public static LoginError LoginErrorFromString(string _e)
         {
             foreach (LoginError e in Enum.GetValues(typeof(LoginError)))

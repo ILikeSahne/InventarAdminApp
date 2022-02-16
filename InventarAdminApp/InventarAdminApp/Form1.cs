@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
 
 namespace InventarAdminApp
 {
@@ -25,12 +26,12 @@ namespace InventarAdminApp
         {
             serverDropDown.Items.Clear();
             List<string> databases = api.ListDatabases();
-            if(databases == null)
+            if (databases == null)
             {
                 Error("Server is offline!");
                 return;
             }
-            foreach(string name in databases)
+            foreach (string name in databases)
             {
                 serverDropDown.Items.Add(name);
             }
@@ -49,10 +50,12 @@ namespace InventarAdminApp
             if (!api.LoggedIn())
                 Login();
             string response = api.CreateNewDatabase(form.DatabaseName, form.AdminEmail, form.AdminUsername, form.AdminPassword);
-            if (response == "OK") {
+            if (response == "OK")
+            {
                 Success("Database " + form.DatabaseName + " created!");
                 return true;
-            } else
+            }
+            else
                 Error(response);
             return false;
         }
@@ -106,10 +109,11 @@ namespace InventarAdminApp
                 Login();
             itemTable.Rows.Clear();
             items = api.ListItems(itemCollectionDropDown.Text);
-            foreach(Item i in items) {
+            foreach (Item i in items)
+            {
                 string[] data = i.ToStrings();
                 string[] dataWithoutID = new string[data.Length - 1];
-                for(int j = 1; j < data.Length; j++)
+                for (int j = 1; j < data.Length; j++)
                 {
                     dataWithoutID[j - 1] = data[j];
                 }
@@ -150,10 +154,10 @@ namespace InventarAdminApp
             }
             var rows = itemTable.SelectedRows;
             List<Item> removes = new List<Item>();
-            foreach(DataGridViewRow row in rows)
+            foreach (DataGridViewRow row in rows)
             {
                 Item i = items[row.Index];
-                
+
                 string response = api.RemoveItem(i);
                 if (response == "OK")
                 {
@@ -239,6 +243,15 @@ namespace InventarAdminApp
             else
                 Error(response);
             ListItemCollections();
+        }
+
+        private void abschreibungToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            byte[] pdf = api.GeneratePDF(DocumentType.ABSCHREIBUNG);
+            File.WriteAllBytes(saveFileDialog.FileName, pdf);
         }
     }
 }
