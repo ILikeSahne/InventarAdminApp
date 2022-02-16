@@ -300,10 +300,10 @@ namespace InventarAPI
             return response.ToString();
         }
 
-        public byte[] GeneratePDF(DocumentType _dt)
+        public byte[] GeneratePDF(DocumentType _dt, string _itemCollection, List<string> _ids)
         {
             LoginError error;
-            object response = SendCommand(new GeneratePDFCommand(_dt), out error);
+            object response = SendCommand(new GeneratePDFCommand(_dt, _itemCollection, _ids), out error);
 
             if (error != LoginError.NONE)
                 return null;

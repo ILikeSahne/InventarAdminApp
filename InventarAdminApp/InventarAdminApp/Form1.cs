@@ -247,11 +247,20 @@ namespace InventarAdminApp
 
         private void abschreibungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            byte[] pdf = api.GeneratePDF(DocumentType.ABSCHREIBUNG);
+            List<string> ids = new List<string>();
+            foreach(Item i in items)
+                ids.Add(i.ID);
+            byte[] pdf = api.GeneratePDF(DocumentType.ABSCHREIBUNG, itemCollectionDropDown.Text, ids);
 
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                Error("Canceled!");
                 return;
+            }
+
             File.WriteAllBytes(saveFileDialog.FileName, pdf);
+
+            Success("File saved!");
         }
     }
 }

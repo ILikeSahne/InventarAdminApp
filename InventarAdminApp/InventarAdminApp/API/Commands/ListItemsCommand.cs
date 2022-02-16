@@ -26,10 +26,8 @@ namespace InventarAPI
             if (response != okResponse) 
                 throw new Exception(response);
 
-            DateTime now = DateTime.Now;
             string json = Unzip(_helper.ReadByteArray());
             List<Item> items = JsonSerializer.Deserialize<List<Item>>(json);
-            Console.WriteLine(DateTime.Now - now);
             return items;
         }
     }
