@@ -250,7 +250,7 @@ namespace InventarAdminApp
             List<string> ids = new List<string>();
             foreach(Item i in items)
                 ids.Add(i.ID);
-            byte[] pdf = api.GeneratePDF(DocumentType.ABSCHREIBUNG, itemCollectionDropDown.Text, ids);
+            byte[] pdf = api.GeneratePDF(DocumentType.ABSCHREIBUNG, itemCollectionDropDown.Text, ids, "A");
 
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
             {

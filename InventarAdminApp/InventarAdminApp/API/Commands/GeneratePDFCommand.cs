@@ -11,13 +11,18 @@ namespace InventarAPI
         private DocumentType dt;
         private string itemCollection;
         private List<string> ids;
+        private string additionalInfo;
 
-        public GeneratePDFCommand(DocumentType _dt, string _itemCollection, List<string> _ids) : base("GeneratePDF")
+        public GeneratePDFCommand(DocumentType _dt, string _itemCollection, List<string> _ids, string _additionalInfo) : base("GeneratePDF")
         {
             dt = _dt;
             itemCollection = _itemCollection;
             ids = _ids;
+            additionalInfo = _additionalInfo;
         }
+
+        public GeneratePDFCommand(DocumentType _dt, string _itemCollection, List<string> _ids) : this(_dt, _itemCollection, _ids, "")
+        { }
 
         public override object Execute(User _u, StreamHelper _helper)
         {
@@ -39,6 +44,8 @@ namespace InventarAPI
             response = _helper.ReadString();
             if (response != okResponse)
                 throw new Exception(response);
+
+            _helper.SendString(additionalInfo);
 
             byte[] pdf = _helper.ReadByteArray();
             return pdf;
