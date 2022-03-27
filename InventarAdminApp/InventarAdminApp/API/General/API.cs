@@ -30,10 +30,10 @@ namespace InventarAPI
             port = _port;
         }
 
-        public API(int _port)
+        public API()
         {
             domain = "127.0.0.1";
-            port = _port;
+            port = 10000;
         }
 
         private void OpenConnection()

@@ -86,7 +86,7 @@
     <Compile Include="AddNewUserForm.Designer.cs">
       <DependentUpon>AddNewUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="API\API.cs" />
+    <Compile Include="API\General\API.cs" />
     <Compile Include="API\Commands\CopyItemCollectionCommand.cs" />
     <Compile Include="API\Commands\AddItemCommand.cs" />
     <Compile Include="API\Commands\AddItemCollectionCommand.cs" />
@@ -107,10 +107,10 @@
     <Compile Include="API\Commands\LoginCommand.cs" />
     <Compile Include="API\Database\Item.cs" />
     <Compile Include="API\Database\User.cs" />
-    <Compile Include="API\Error.cs" />
+    <Compile Include="API\General\Error.cs" />
     <Compile Include="API\RSA\RSA.cs" />
     <Compile Include="API\RSA\RSAHelper.cs" />
-    <Compile Include="API\StreamHelper.cs" />
+    <Compile Include="API\General\StreamHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

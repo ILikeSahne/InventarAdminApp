@@ -17,7 +17,7 @@ namespace InventarAdminApp
         public Form1()
         {
             InitializeComponent();
-            api = new API(10000);
+            api = new API();
             // Console.WriteLine(api.Login("bulme", "ilikesahne@gmx.at", "Pw123XYZ12").ToString());
             LoadServers();
         }
